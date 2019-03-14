@@ -1,16 +1,21 @@
+from __future__ import print_function
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+import keras
 from keras.models import Model
 from keras.layers import LSTM, Activation, Dense, Dropout, Input, Embedding
-from keras.optimizers import RMSprop
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping
+from keras import backend as K
+import tensorflowjs as tfjs
+
 
 training_data = './Input_json/train.json.csv'
 
@@ -80,7 +85,9 @@ def RNN(max_len, max_words):
     layer = LSTM(64)(layer)
     layer = Dense(256, name = 'FC1')(layer)
     layer = Activation('relu')(layer)
-    layer = Dropout(0.5)(layer)
+    layer = Dense(256, name = 'FC2')(layer)
+    layer = Activation('relu')(layer)
+    layer = Dropout(0.05)(layer)
     layer = Dense(Y_CLASS, name = 'out_layer')(layer)
     layer = Activation('softmax')(layer)
     model = Model(inputs=inputs, outputs=layer)
@@ -92,10 +99,15 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 model.fit(  tokenizeData(X_train),
             Y_train,
-            batch_size=128,
-            epochs=10,
+            batch_size=256,
+            epochs=500,
             validation_split=0.2,
             callbacks = [EarlyStopping(monitor='val_loss', min_delta=0.0001)])
 
 
+score = model.evaluate(tokenizeData(X_test), Y_test, verbose=0)
+print('Test loss: ', score[0])
+print('Test Accuracy: ', score[1])
+
+tfjs.converters.save_keras_model(model, "model_SLSTM")
 
