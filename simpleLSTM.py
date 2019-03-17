@@ -65,7 +65,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def RNN(max_len, max_words):
     inputs = Input(name='inputs', shape=[max_len])
     layer = Embedding(max_words, 128, input_length=max_len)(inputs)
-    layer = LSTM(64, dropout=0.1, recurrent_dropout=0.1)(layer)
+    layer = LSTM(64, dropout=0.1, recurrent_dropout=0.1, return_sequences=True)(layer)
     layer = LSTM(64, dropout=0.1, recurrent_dropout=0.1)(layer)
     layer = Dense(256, name = 'FC1')(layer)
     layer = Activation('relu')(layer)
@@ -81,17 +81,17 @@ model = RNN(TOKEN_MAX_LEN, TOKEN_MAX_WORDS)
 model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-model.fit(  tokenizeData(X_train),
+model.fit(  X_train,
             Y_train,
-            batch_size=256,
-            epochs=3,
+            batch_size=128,
+            epochs=256,
             validation_split=0.2,
             callbacks = [EarlyStopping(monitor='val_loss',
-				       patinece=10, 
+				       patience=10, 
 				       min_delta=0.0001)])
 
 
-score = model.evaluate(tokenizeData(X_test), Y_test)
+score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
 
