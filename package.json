@@ -1,0 +1,21 @@
+{
+  "name": "Ing2Con",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pko89403/amore_internship.git",
+  "author": "pko89403 <pko89403@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.0.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-react-app": "^7.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

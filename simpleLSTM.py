@@ -30,14 +30,15 @@ plt.show()
 # Create input and output Vector
 X = df.ingredients
 Y = df.cuisine
-Y_CLASS = 20
+Y_CLASS = 20 # NUM OF CLASS
 # Process the labels
+
 le = LabelEncoder()
 Y = le.fit_transform(Y)
-Y = Y.reshape(-1, 1)
+Y = Y.reshape(-1,1)
 Y = to_categorical(Y, num_classes=Y_CLASS)
+
 # Split into training and test data
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.15)
 
 TOKEN_MAX_WORDS = 1000
 TOKEN_MAX_LEN = 150
@@ -57,32 +58,15 @@ def tokenizeData(x_datas):
     sequences_matrix = sequence.pad_sequences(sequences, maxlen=TOKEN_MAX_LEN)
     return sequences_matrix
 
-ONEHOT_DIMENSION = 1000
-ONEHOT_MAX_LEN = 10
-def oneHotData(x_datas):
+X = tokenizeData(X)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
-    """
-    :param: x_datas:
-    :return: results
-    if word dict size is so big, using oneHot Hashing.
-    data encoding using hashing,
-    """
-    results = np.zeros((len(x_datas), ONEHOT_MAX_LEN, ONEHOT_DIMENSION))
-    for i, x_data in enumerate(x_datas):
-        for j, word in list(enumerate(x_datas.split()))[:ONEHOT_MAX_LEN]:
-            index = abs(hash(word)) % ONEHOT_DIMENSION
-            results[i, j, index] = 1.
 
-    return results
-"""
-WEM_FWORD = 10000
-WEM_MAXLEN = 20
-def wordEmbedding(x_datas):
-"""
 def RNN(max_len, max_words):
     inputs = Input(name='inputs', shape=[max_len])
-    layer = Embedding(max_words, 50, input_length=max_len)(inputs)
-    layer = LSTM(64)(layer)
+    layer = Embedding(max_words, 128, input_length=max_len)(inputs)
+    layer = LSTM(64, dropout=0.1, recurrent_dropout=0.1)(layer)
+    layer = LSTM(64, dropout=0.1, recurrent_dropout=0.1)(layer)
     layer = Dense(256, name = 'FC1')(layer)
     layer = Activation('relu')(layer)
     layer = Dense(256, name = 'FC2')(layer)
@@ -100,12 +84,14 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 model.fit(  tokenizeData(X_train),
             Y_train,
             batch_size=256,
-            epochs=500,
+            epochs=3,
             validation_split=0.2,
-            callbacks = [EarlyStopping(monitor='val_loss', min_delta=0.0001)])
+            callbacks = [EarlyStopping(monitor='val_loss',
+				       patinece=10, 
+				       min_delta=0.0001)])
 
 
-score = model.evaluate(tokenizeData(X_test), Y_test, verbose=0)
+score = model.evaluate(tokenizeData(X_test), Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
 
