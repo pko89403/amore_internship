@@ -25,15 +25,6 @@ import tensorflowjs as tfjs
 training_data = './Input_json/train.json.csv'
 
 df = pd.read_csv(training_data)
-print(df.head(), df.info())
-
-sns.countplot(df.cuisine)
-plt.xlabel('Label')
-plt.title('Number of cusine categories')
-plt.savefig('./model_SLSTM/NumberOfCusines.png')
-plt.clf()
-plt.cla()
-plt.close()
 
 # Create input and output Vector
 X = df.ingredients
@@ -48,34 +39,29 @@ Y = to_categorical(Y, num_classes=Y_CLASS)
 
 # Split into training and test data
 
-TOKEN_MAX_WORDS = 1000
-TOKEN_MAX_LEN = 150
+MAX_WORDS = 0
+MAX_LEN = 0
+
 def tokenizeData(x_datas):
-
-    """
-    :param x_datas:
-    Tokenize the data and convert the text to sequences.
-    Add padding to ensure that all sequences have the same shape.
-
-    :return: sequences_matrix
-
-    """
-
-    tok = Tokenizer(num_words=TOKEN_MAX_WORDS)
-    tok.fit_on_texts(x_datas)
-    sequences = tok.texts_to_sequences(x_datas)
-    sequences_matrix = sequence.pad_sequences(sequences, maxlen=TOKEN_MAX_LEN)
+    tokenizer = Tokenizer()
+    tokenizer.fit_on_texts(x_datas)
+    sequences = tokenizer.texts_to_sequences(x_datas)
+    print(x_datas[0], sequences[0])
     
-    tok_json = tok.to_json()
-    with io.open('tokenizer.json', 'w', encoding='utf-8') as f:
+    maxlen = max([len(x) - 1 for x in sequences])
+    vocab_size = len(tokenizer.word_index)+1
+
+    print(tokenizer.texts_to_sequences('romaine lettuce black olives grape tomatoes garlic pepper purple onion seasoning garbanzo beans feta cheese crumbles'))   
+    global MAX_WORDS
+    MAX_WORDS = vocab_size
+    global MAX_LEN
+    MAX_LEN = 150
+    sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
+    print(sequences_matrix)
+    tok_json = tokenizer.to_json()
+    with io.open('tokenizer2.json', 'w', encoding='utf-8') as f:
        f.write(json.dumps(tok_json, ensure_ascii=False))
-
-
-
-
     return sequences_matrix
 
 X = tokenizeData(X)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
-
 
