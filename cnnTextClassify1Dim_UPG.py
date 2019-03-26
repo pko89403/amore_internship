@@ -38,7 +38,7 @@ le = LabelEncoder()
 Y = le.fit_transform(Y)
 Y = Y.reshape(-1,1)
 Y = to_categorical(Y, num_classes=Y_CLASS)
-
+print(Y)
 # Split into training and test data
 
 MAX_WORDS = 0
@@ -66,16 +66,16 @@ def tokenizeData(x_datas):
 	return sequences_matrix
 
 X = tokenizeData(X)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=9000)
 
 def CNN(max_len, max_words):
 	print(max_len, max_words)
 	inputs = Input(name='inputs', shape=(max_len,))
-	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
+	embedding = Embedding(input_dim=max_words, output_dim=16, input_length=max_len)(inputs)
 
-	conv_0 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
-	conv_1 = Conv1D(filters=512, kernel_size=6, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
-	conv_2 = Conv1D(filters=512, kernel_size=8, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
+	conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
+	conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
+	conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
 	  
 	maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0)
 	maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1)
@@ -86,14 +86,13 @@ def CNN(max_len, max_words):
 	flat_2 = Flatten()(maxpool_2)
 
 	concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
-	
-	dense1 = Dense(units = 512, activation = 'relu', kernel_regularizer='l2')(concatenated)
-	dropout1 = Dropout(0.25)(dense1)
-	dense2 = Dense(units = 512, activation = 'relu', kernel_regularizer='l2')(dropout1)	
-	dropout2 = Dropout(0.25)(dense2)
+
+	dense1 = Dense(units = 1024, activation = 'relu', kernel_regularizer='l2')(concatenated)
+	dropout1 = Dropout(0.5)(dense1)
+	dense2 = Dense(units = 1024, activation = 'relu')(dropout1)	
 	
 	global Y_CLASS
-	output = Dense(units=Y_CLASS, activation='softmax')(dropout2)
+	output = Dense(units=Y_CLASS, activation='softmax')(dense2)
 	
 	model = Model(inputs=inputs, outputs=output)
 	
@@ -102,16 +101,14 @@ def CNN(max_len, max_words):
 model = CNN(MAX_LEN, MAX_WORDS)
 model.summary()
 plot_model(model, to_file='./'+ ODIR + '/model.png')
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=Adam(), metrics=['accuracy'])
 
 history = model.fit(	X_train,
 			Y_train,
-			batch_size=1024,
+			batch_size=200,
 			epochs=256,
-			validation_split=0.2,
-			callbacks = [	EarlyStopping(	monitor='val_loss',
-							patience=16,
-							min_delta=0.0001)])
+			validation_split=0.1,
+			callbacks = [ EarlyStopping( monitor='val_loss', patience=4,)])
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
