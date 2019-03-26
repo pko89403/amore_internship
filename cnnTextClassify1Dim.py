@@ -60,7 +60,7 @@ def tokenizeData(x_datas):
 	print(sequences_matrix[0])
 
 	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_maxLen30.json', 'w', encoding='utf-8') as f:
+	with io.open('./' + ODIR + '/tokenizer_maxLen32.json', 'w', encoding='utf-8') as f:
 		f.write(json.dumps(tok_json, ensure_ascii=False))
     
 	return sequences_matrix
@@ -100,17 +100,14 @@ model.summary()
 plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-#history = model.fit(	X_train,
-#			Y_train,
-#			batch_size=32,
-#			epochs=256,
-#			validation_split=0.25,
-#			callbacks = [	EarlyStopping(	monitor='val_loss',
-#							patience=10,
-#							min_delta=0.0001)])
-
-history = model.fit(X_train, Y_train, epochs=20, batch_size=64)
-
+history = model.fit(	X_train,
+			Y_train,
+			batch_size=1024,
+			epochs=256,
+			validation_split=0.2,
+			callbacks = [	EarlyStopping(	monitor='val_loss',
+							patience=30,
+							min_delta=0.0001)])
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
