@@ -53,7 +53,7 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 96
+	MAX_LEN = 64
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
 
@@ -69,22 +69,22 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def DNN(max_len, max_words):
     print(max_len, max_words)
     inputs = Input(name='inputs', shape=(max_len,))
-    embedding = Embedding(input_dim=max_words, output_dim=32, input_length=max_len)(inputs)    
+    embedding = Embedding(input_dim=max_words, output_dim=128, input_length=max_len)(inputs)    
     print(embedding.get_shape())
     Flattened = Flatten()(embedding)
     print(Flattened.get_shape())
 
-    dense1 = Dense(units=1024, activation='relu')(Flattened)
-    dense2 = Dense(units=1024, activation='relu')(dense1)
+    dense1 = Dense(units=2048, activation='relu')(Flattened)
+    dense2 = Dense(units=2048, activation='relu')(dense1)
     dropout2 = Dropout(0.5)(dense2)
 
-    dense3 = Dense(units=2048, activation='relu')(dropout2)
-    dense4 = Dense(units=2048, activation='relu')(dense3)
+    dense3 = Dense(units=1024, activation='relu')(dropout2)
+    dense4 = Dense(units=1024, activation='relu')(dense3)
     dropout3 = Dropout(0.5)(dense4)
 
-    dense5 = Dense(units=512, activation='relu')(dropout3)
-    dense6 = Dense(units=256, activation='relu')(dense5)
-    dense7 = Dense(units=128, activation='relu')(dense6)
+    dense5 = Dense(units=1024, activation='relu')(dropout3)
+    dense6 = Dense(units=1024, activation='relu')(dense5)
+    dense7 = Dense(units=512, activation='relu')(dense6)
 
 
     output = Dense(units=Y_CLASS, activation='softmax')(dense7)
@@ -100,9 +100,9 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 history = model.fit(	X_train,
 			            Y_train,
-                        batch_size=32,
+                        batch_size=512,
                         epochs=128,
-                        validation_split=0.25,
+                        validation_split=0.2,
                         callbacks = [	EarlyStopping(	monitor='val_loss',
                                                         patience=10,
                                                         min_delta=0.0001)])
