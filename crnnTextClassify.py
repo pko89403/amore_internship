@@ -73,9 +73,9 @@ def CNN(max_len, max_words):
 	inputs = Input(name='inputs', shape=(max_len,))
 	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
 	print(embedding.get_shape())
-	conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
-	conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
-	conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
+	conv_0 = Conv1D(filters = 512, kernel_size=3, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
+	conv_1 = Conv1D(filters = 512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
+	conv_2 = Conv1D(filters = 512, kernel_size=5, padding='valid', kernel_initializer='normal', activation='relu')(embedding)
 	  
 	maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0)
 	maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1)
