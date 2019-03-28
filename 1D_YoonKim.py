@@ -55,7 +55,7 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 32
+	MAX_LEN = 64
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
 

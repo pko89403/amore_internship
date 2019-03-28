@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="1D_YoonKim.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
+      <file leaf-file-name="SimpleCNN_NE.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="276">
+              <caret line="97" column="35" lean-forward="true" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -47,6 +47,8 @@
         <option value="$PROJECT_DIR$/simpleLSTM_TokCHeck.py" />
         <option value="$PROJECT_DIR$/cnnTextClassify1.py" />
         <option value="$PROJECT_DIR$/1D_YoonKim.py" />
+        <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
+        <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
       </list>
     </option>
   </component>
@@ -108,8 +110,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.noEmb2_DNN">
-    <configuration name="data_preproc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.SimpleCNN_NE">
+    <configuration name="SimpleCNN_NE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -121,13 +123,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_preproc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleCNN_NE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="json2csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="SimpleDNN_NE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -139,7 +141,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/json2csv.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN_NE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,19 +202,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.json2csv" />
-      <item index="1" class="java.lang.String" itemvalue="Python.data_preproc" />
-      <item index="2" class="java.lang.String" itemvalue="Python.simpleLSTM" />
-      <item index="3" class="java.lang.String" itemvalue="Python.noEmbeddingCNNClassify" />
-      <item index="4" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
+      <item index="0" class="java.lang.String" itemvalue="Python.simpleLSTM" />
+      <item index="1" class="java.lang.String" itemvalue="Python.noEmbeddingCNNClassify" />
+      <item index="2" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
+      <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="4" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
-        <item index="1" class="java.lang.String" itemvalue="Python.noEmbeddingCNNClassify" />
-        <item index="2" class="java.lang.String" itemvalue="Python.simpleLSTM" />
-        <item index="3" class="java.lang.String" itemvalue="Python.json2csv" />
-        <item index="4" class="java.lang.String" itemvalue="Python.data_preproc" />
+        <item index="0" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+        <item index="2" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
+        <item index="3" class="java.lang.String" itemvalue="Python.noEmbeddingCNNClassify" />
+        <item index="4" class="java.lang.String" itemvalue="Python.simpleLSTM" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +243,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35236004" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35236004" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35236004" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -362,7 +364,7 @@
         <state relative-caret-position="-23">
           <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -380,7 +382,7 @@
         <state relative-caret-position="-2070">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -390,7 +392,7 @@
         <state relative-caret-position="161">
           <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -400,17 +402,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1587">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -423,20 +415,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noEmbeddingCNNClassify.py">
+    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state relative-caret-position="183">
+          <caret line="57" column="16" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
+    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="-943">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noEmbeddingCNNClassify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="97" column="35" lean-forward="true" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

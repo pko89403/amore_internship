@@ -38,7 +38,7 @@ Y = to_categorical(Y, num_classes=Y_CLASS)
 
 # Split into training and test data
 MAX_WORDS = 0
-MAX_LEN = 0
+MAX_LEN = 150
 
 def tokenizeData(x_datas):
 	tokenizer = Tokenizer()
