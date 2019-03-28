@@ -11,7 +11,7 @@ import json
 from keras.utils import plot_model
 from keras.models import Model
 from keras.layers import Input, Dense, Embedding, Conv2D, MaxPool2D
-from keras.layers import Reshape, Flatten, Dropout, Concatenate
+from keras.layers import Reshape, Flatten, Dropout, Concatenate, BatchNormalization
 from keras.preprocessing.text import *
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
@@ -19,7 +19,7 @@ from keras.callbacks import EarlyStopping
 from keras import backend as K
 import tensorflowjs as tfjs
 
-ODIR = 'modelCNN'
+ODIR = '2D_YoonKim'
 training_data = './Input_json/train.json.csv'
 
 df = pd.read_csv(training_data)
@@ -52,7 +52,7 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 32
+	MAX_LEN = 150
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
 
@@ -68,16 +68,20 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_len, max_words):
 
 	inputs = Input(name='inputs', shape=(max_len,))
-	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
+	embedding = Embedding(input_dim=max_words, output_dim=128, input_length=max_len, kernel_regularizer='l2')(inputs)
 	reshape = Reshape((max_len, 64, 1))(embedding)
 
 	conv_0 = Conv2D(filters=512, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
+	conv_0_bn = BatchNormalization()(conv_0)
 	conv_1 = Conv2D(filters=512, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+	conv_1_bn = BatchNormalization()(conv_1)
 	conv_2 = Conv2D(filters=512, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
-	  
-	maxpool_0 = MaxPool2D(pool_size=(max_len - 3 + 1, 1), strides=(1,1), padding='valid')(conv_0)
-	maxpool_1 = MaxPool2D(pool_size=(max_len - 4 + 1, 1), strides=(1,1), padding='valid')(conv_1)
-	maxpool_2 = MaxPool2D(pool_size=(max_len - 5 + 1, 1), strides=(1,1), padding='valid')(conv_2)
+	conv_2_bn = BatchNormalization()(conv_2)
+
+
+	maxpool_0 = MaxPool2D(pool_size=(max_len - 3 + 1, 1), strides=(1,1), padding='valid')(conv_0_bn)
+	maxpool_1 = MaxPool2D(pool_size=(max_len - 4 + 1, 1), strides=(1,1), padding='valid')(conv_1_bn)
+	maxpool_2 = MaxPool2D(pool_size=(max_len - 5 + 1, 1), strides=(1,1), padding='valid')(conv_2_bn)
 
 	concatenated = Concatenate(axis=1)([maxpool_0, maxpool_1, maxpool_2])
 	flattened = Flatten()(concatenated)
@@ -97,11 +101,11 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 history = model.fit(	X_train,
 			Y_train,
-			batch_size=32,
+			batch_size=200,
 			epochs=256,
-			validation_split=0.25,
+			validation_split=0.2,
 			callbacks = [	EarlyStopping(	monitor='val_loss',
-							patience=10,
+							patience=5,
 							min_delta=0.0001)])
 
 # Plot training & validation accuracy values
