@@ -23,7 +23,7 @@ from keras.callbacks import EarlyStopping
 from keras import backend as K
 import tensorflowjs as tfjs
 
-ODIR = 'modelCNN1Dim'
+ODIR = '1D_YoonKim'
 training_data = './Input_json/train.json.csv'
 
 df = pd.read_csv(training_data)
