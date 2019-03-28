@@ -74,9 +74,9 @@ def CNN(max_len, max_words):
 	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
 	reshape = Reshape((max_len, 64, 1))(embedding)
 
-	conv_0 = Conv2D(filters=512, kernel_size=(3, 64), padding='valid', kernel_initializer='normal', activation='relu')(reshape)
-	conv_1 = Conv2D(filters=512, kernel_size=(4, 64), padding='valid', kernel_initializer='normal', activation='relu')(reshape)
-	conv_2 = Conv2D(filters=512, kernel_size=(5, 64), padding='valid', kernel_initializer='normal', activation='relu')(reshape)
+	conv_0 = Conv2D(filters=512, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
+	conv_1 = Conv2D(filters=512, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+	conv_2 = Conv2D(filters=512, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
 	  
 	maxpool_0 = MaxPool2D(pool_size=(max_len - 3 + 1, 1), strides=(1,1), padding='valid')(conv_0)
 	maxpool_1 = MaxPool2D(pool_size=(max_len - 4 + 1, 1), strides=(1,1), padding='valid')(conv_1)
