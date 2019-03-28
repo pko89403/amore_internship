@@ -55,12 +55,12 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 32
+	MAX_LEN = 150
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
 
 	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_maxLen32.json', 'w', encoding='utf-8') as f:
+	with io.open('./' + ODIR + '/tokenizer_maxLen'+ str(MAX_LEN) + '.json', 'w', encoding='utf-8') as f:
 		f.write(json.dumps(tok_json, ensure_ascii=False))
     
 	return sequences_matrix
@@ -69,33 +69,42 @@ X = tokenizeData(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
 def CNN(max_len, max_words):
-    print(max_len, max_words)
     inputs = Input(name='inputs', shape=(max_len,))
+    Reshaped = Reshape(target_shape=(max_len, 1))(inputs)
 
-    inputsReshaped = Reshape(target_shape=(max_len, 1))(inputs)
+    conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(Reshaped)
+    conv_01 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(conv_0)
+    maxpool_01 = MaxPool1D(pool_size=2, padding='valid')(conv_01)
+    conv_012 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(maxpool_01)
+    conv_0123 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(conv_012)
+    maxpool_012 = MaxPool1D(pool_size=2, padding='valid')(conv_0123)
 
-    conv_0 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(inputsReshaped)
-    conv_1 = Conv1D(filters=512, kernel_size=6, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(inputsReshaped)
-    conv_2 = Conv1D(filters=512, kernel_size=8, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(inputsReshaped)
+    conv_1 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(Reshaped)
+    conv_11 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(conv_1)
+    maxpool_11 = MaxPool1D(pool_size=2, padding='valid')(conv_11)
+    conv_112 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(maxpool_11)
+    conv_1123 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(conv_112)
+    maxpool_112 = MaxPool1D(pool_size=2, padding='valid')(conv_1123)
 
-    print(conv_0.get_shape())
+    conv_2 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(Reshaped)
+    conv_21 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(conv_2)
+    maxpool_21 = MaxPool1D(pool_size=2, padding='valid')(conv_21)
+    conv_212 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(maxpool_21)
+    conv_2123 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(conv_212)
+    maxpool_212 = MaxPool1D(pool_size=2, padding='valid')(conv_2123)
 
-    maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0)
-    maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1)
-    maxpool_2 = MaxPool1D(pool_size=2, padding='valid')(conv_2)
-
-    print(maxpool_0.get_shape())
-
-    flat_0 = Flatten()(maxpool_0)
-    flat_1 = Flatten()(maxpool_1)
-    flat_2 = Flatten()(maxpool_2)
+    flat_0 = Flatten()(maxpool_012)
+    flat_1 = Flatten()(maxpool_112)
+    flat_2 = Flatten()(maxpool_212)
 
     concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
-    dropout = Dropout(0.5)(concatenated)
+
+    dense1 = Dense(units=1024, activation='relu')(concatenated)
+    dense2 = Dense(units=1024, activation='relu')(dense1)
+    dense3 = Dense(units=1024, activation='relu')(dense2)
 
     global Y_CLASS
-    output = Dense(units=Y_CLASS, activation='softmax')(dropout)
-
+    output = Dense(units=Y_CLASS, activation='softmax')(dense3)
     model = Model(inputs=inputs, outputs=output)
 	
     return model
@@ -107,12 +116,12 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 history = model.fit(	X_train,
 			Y_train,
-			batch_size=1024,
-			epochs=256,
+			batch_size=200,
+			epochs=1024,
 			validation_split=0.2,
 			callbacks = [	EarlyStopping(	monitor='val_loss',
 							patience=30,
-							min_delta=0.0001)])
+						)])
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
