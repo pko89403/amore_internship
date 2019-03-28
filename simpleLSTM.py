@@ -127,7 +127,7 @@ history = model.fit(  X_train,
             epochs=256,
             validation_split=0.25,
             callbacks = [EarlyStopping(monitor='val_loss',
-				       patience=16, 
+				       patience=5, 
 				       min_delta=0.0001)])
 
 # Plot training & validation accuracy values

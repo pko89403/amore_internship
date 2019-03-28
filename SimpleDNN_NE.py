@@ -21,7 +21,7 @@ from keras.callbacks import EarlyStopping
 from keras import backend as K
 import tensorflowjs as tfjs
 
-ODIR = 'modelDNNwithoutEMB'
+ODIR = 'DNN_NE'
 training_data = './Input_json/train.json.csv'
 df = pd.read_csv(training_data)
 
@@ -38,7 +38,7 @@ Y = to_categorical(Y, num_classes=Y_CLASS)
 
 # Split into training and test data
 MAX_WORDS = 0
-MAX_LEN = 150
+MAX_LEN = 30
 
 def tokenizeData(x_datas):
 	tokenizer = Tokenizer()
@@ -52,7 +52,7 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 150
+	MAX_LEN = 30
 
 	print( len(matrixes), len(matrixes[0]) )
 

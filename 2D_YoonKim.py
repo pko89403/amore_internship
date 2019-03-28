@@ -52,7 +52,7 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 150
+	MAX_LEN = 30
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
 
@@ -68,14 +68,14 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_len, max_words):
 
 	inputs = Input(name='inputs', shape=(max_len,))
-	embedding = Embedding(input_dim=max_words, output_dim=128, input_length=max_len, kernel_regularizer='l2')(inputs)
+	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
 	reshape = Reshape((max_len, 64, 1))(embedding)
 
-	conv_0 = Conv2D(filters=512, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
+	conv_0 = Conv2D(filters=256, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
 	conv_0_bn = BatchNormalization()(conv_0)
-	conv_1 = Conv2D(filters=512, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+	conv_1 = Conv2D(filters=256, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
 	conv_1_bn = BatchNormalization()(conv_1)
-	conv_2 = Conv2D(filters=512, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+	conv_2 = Conv2D(filters=256, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
 	conv_2_bn = BatchNormalization()(conv_2)
 
 
