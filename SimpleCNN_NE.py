@@ -15,6 +15,7 @@ from keras.preprocessing.text import *
 from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping
 from keras import backend as K
+K.tensorflow_backend._get_available_gpus()
 import tensorflowjs as tfjs
 
 ODIR = 'modelCNN_NE'
@@ -49,7 +50,7 @@ def tokenizeData(x_datas):
 
     global MAX_WORDS, MAX_LEN
     MAX_WORDS = vocab_size
-    MAX_LEN = 150
+    MAX_LEN = 30
 
     print(len(matrixes), len(matrixes[0]))
 
@@ -68,32 +69,32 @@ def CNN(max_words):
     inputs = Input(name='inputs', shape=(max_words,))
     Reshaped = Reshape(target_shape=(max_words, 1))(inputs)
 
-    conv_0 = Conv1D(filters=64, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
-    conv_01 = Conv1D(filters=64, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(conv_0)
+    conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_01 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(conv_0)
     conv_01_bn = BatchNormalization()(conv_01)
     maxpool_01 = MaxPool1D(pool_size=2, padding='valid')(conv_01_bn)
-    conv_012 = Conv1D(filters=64, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_01)
-    conv_0123 = Conv1D(filters=64, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(conv_012)
+    conv_012 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_01)
+    conv_0123 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(conv_012)
     conv_0123_bn = BatchNormalization()(conv_0123)
     maxpool_012 = MaxPool1D(pool_size=2, padding='valid')(conv_0123_bn)
     dropout01 = Dropout(0.5)(maxpool_012)
 
-    conv_1 = Conv1D(filters=64, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
-    conv_11 = Conv1D(filters=64, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(conv_1)
+    conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_11 = Conv1D(filters=512, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(conv_1)
     conv_11_bn = BatchNormalization()(conv_11)
     maxpool_11 = MaxPool1D(pool_size=2, padding='valid')(conv_11_bn)
-    conv_112 = Conv1D(filters=64, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_11)
-    conv_1123 = Conv1D(filters=64, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(conv_112)
+    conv_112 = Conv1D(filters=512, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_11)
+    conv_1123 = Conv1D(filters=512, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(conv_112)
     conv_1123_bn = BatchNormalization()(conv_1123)
     maxpool_112 = MaxPool1D(pool_size=2, padding='valid')(conv_1123_bn)
     dropout11 = Dropout(0.5)(maxpool_112)
 
-    conv_2 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
-    conv_21 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(conv_2)
+    conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_21 = Conv1D(filters=512, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(conv_2)
     conv_21_bn = BatchNormalization()(conv_21)
     maxpool_21 = MaxPool1D(pool_size=2, padding='valid')(conv_21_bn)
-    conv_212 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_21)
-    conv_2123 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(conv_212)
+    conv_212 = Conv1D(filters=512, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(maxpool_21)
+    conv_2123 = Conv1D(filters=512, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(conv_212)
     conv_2123_bn = BatchNormalization()(conv_2123)
     maxpool_212 = MaxPool1D(pool_size=2, padding='valid')(conv_2123_bn)
     dropout21 = Dropout(0.5)(maxpool_212)
@@ -104,13 +105,13 @@ def CNN(max_words):
 
     concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
 
-    dense1 = Dense(units=512, activation='relu', use_bias=False, kernel_regularizer='l2')(concatenated)
+    dense1 = Dense(units=1024, activation='relu', use_bias=False, kernel_regularizer='l2')(concatenated)
     dense1_bn = BatchNormalization()(dense1)
     dense1_drop = Dropout(0.5)(dense1_bn)
-    dense2 = Dense(units=512, activation='relu', use_bias=False, kernel_regularizer='l2')(dense1_drop)
+    dense2 = Dense(units=1024, activation='relu', use_bias=False, kernel_regularizer='l2')(dense1_drop)
     dense2_bn = BatchNormalization()(dense2)
     dense2_drop = Dropout(0.5)(dense2_bn)
-    dense3 = Dense(units=512, activation='relu', use_bias=False, kernel_regularizer='l2')(dense2_drop)
+    dense3 = Dense(units=1024, activation='relu', use_bias=False, kernel_regularizer='l2')(dense2_drop)
     dense3_bn = BatchNormalization()(dense3)
     dense3_drop = Dropout(0.5)(dense3_bn)
 

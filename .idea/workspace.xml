@@ -14,8 +14,8 @@
       <file leaf-file-name="SimpleCNN_NE.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+            <state relative-caret-position="-115">
+              <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="16" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="83" column="88" lean-forward="true" selection-start-line="83" selection-start-column="88" selection-end-line="83" selection-end-column="88" />
+              <caret line="83" column="88" lean-forward="false" selection-start-line="83" selection-start-column="88" selection-end-line="83" selection-end-column="88" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -86,8 +86,8 @@
         <option value="$PROJECT_DIR$/cnnTextClassify1.py" />
         <option value="$PROJECT_DIR$/1D_YoonKim.py" />
         <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
-        <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
         <option value="$PROJECT_DIR$/2D_YoonKim.py" />
+        <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
       </list>
     </option>
   </component>
@@ -322,7 +322,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleLSTM.py">
+    <entry file="file://$PROJECT_DIR$/simpleLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1679">
           <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
@@ -330,7 +330,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/json2csv2.py" />
-    <entry file="file://$PROJECT_DIR$/SimpleLSTM.py">
+    <entry file="file://$PROJECT_DIR$/simpleLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -397,7 +397,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleLSTM.py">
+    <entry file="file://$PROJECT_DIR$/simpleLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="109" column="37" lean-forward="true" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
@@ -437,7 +437,7 @@
     <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="83" column="88" lean-forward="true" selection-start-line="83" selection-start-column="88" selection-end-line="83" selection-end-column="88" />
+          <caret line="83" column="88" lean-forward="false" selection-start-line="83" selection-start-column="88" selection-end-line="83" selection-end-column="88" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -446,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+        <state relative-caret-position="-115">
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="16" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
