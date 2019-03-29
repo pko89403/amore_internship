@@ -1,11 +1,13 @@
 from __future__ import print_function
 
+import theano
+theano.config.device = 'gpu'
+theano.config.floatX = 'float32'
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-import io
-import json
 import keras
 from keras.utils import plot_model
 from keras.models import Model
