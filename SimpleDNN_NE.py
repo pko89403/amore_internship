@@ -46,7 +46,7 @@ def tokenizeData(x_datas):
 	MAX_WORDS = vocab_size
 
 	print(' Examples : ', len(matrixes), len(matrixes[0]) )
-
+	print(x_datas[0] + ' -> ' + matrixes[0])
 	tok_json = tokenizer.to_json()
 	with io.open('./' + ODIR + '/tokenizer_bagofwords.json', 'w', encoding='utf-8') as f:
 		f.write(json.dumps(tok_json, ensure_ascii=False))
@@ -59,19 +59,19 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))
 
-	dense1 = Dense(units=1024, activation='relu', kernel_regularizer='l2')(inputs)
+	dense1 = Dense(units=1024, activation='relu')(inputs)
 	dense1_BN = BatchNormalization()(dense1)
 	dropOut1 = Dropout(0.5)(dense1_BN)
 
-	dense2 = Dense(units=2048, activation='relu', kernel_regularizer='l2')(dropOut1)
+	dense2 = Dense(units=2048, activation='relu')(dropOut1)
 	dense2_BN = BatchNormalization()(dense2)
 	dropOut2 = Dropout(0.5)(dense2_BN)
 
-	dense3 = Dense(units=2048, activation='relu', kernel_regularizer='l2')(dropOut2)
+	dense3 = Dense(units=2048, activation='relu')(dropOut2)
 	dense3_BN = BatchNormalization()(dense3)
 	dropOut3 = Dropout(0.5)(dense3_BN)
 
-	dense4 = Dense(units=1024, activation='relu', kernel_regularizer='l2')(dropOut3)
+	dense4 = Dense(units=1024, activation='relu')(dropOut3)
 	dense4_BN = BatchNormalization()(dense4)
 	dropOut4 = Dropout(0.5)(dense4_BN)
 
