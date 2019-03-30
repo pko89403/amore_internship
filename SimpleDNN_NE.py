@@ -61,16 +61,20 @@ def CNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))
 
 	dense1 = Dense(units=2048, activation='relu')(inputs)
-	dropOut1 = Dropout(0.5)(dense1)
+	dense1_BN = BatchNormalization()(dense1)
+	dropOut1 = Dropout(0.5)(dense1_BN)
 
 	dense2 = Dense(units=4096, activation='relu')(dropOut1)
-	dropOut2 = Dropout(0.5)(dense2)
+	dense2_BN = BatchNormalization()(dense2)
+	dropOut2 = Dropout(0.5)(dense2_BN)
 
 	dense3 = Dense(units=4096, activation='relu')(dropOut2)
-	dropOut3 = Dropout(0.5)(dense3)
+	dense3_BN = BatchNormalization()(dense3)
+	dropOut3 = Dropout(0.5)(dense3_BN)
 
 	dense4 = Dense(units=2048, activation='relu')(dropOut3)
-	dropOut4 = Dropout(0.5)(dense4)
+	dense4_BN = BatchNormalization()(dense4)
+	dropOut4 = Dropout(0.5)(dense4_BN)
 
 	global Y_CLASS
 	output = Dense(units=Y_CLASS, activation='softmax')(dropOut4)
