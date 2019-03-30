@@ -1,24 +1,19 @@
 from __future__ import print_function
 
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 import io
 import json
-import keras
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+from keras.preprocessing.text import *
 from keras.utils import plot_model, to_categorical
 from keras.models import Model
-from keras.layers import Input, Dense, Embedding, Conv1D, MaxPool1D
-from keras.layers import Reshape, Flatten, Dropout, Concatenate
-from keras.optimizers import Adam
-from keras.preprocessing.text import *
-from keras.preprocessing import sequence
-from keras.utils import to_categorical
+from keras.layers import Input, Dense
+from keras.layers import Dropout, BatchNormalization
 from keras.callbacks import EarlyStopping
-from keras import backend as K
+
 import tensorflowjs as tfjs
 
 ODIR = 'DNN_NE'
@@ -38,7 +33,6 @@ Y = to_categorical(Y, num_classes=Y_CLASS)
 
 # Split into training and test data
 MAX_WORDS = 0
-MAX_LEN = 30
 
 def tokenizeData(x_datas):
 	tokenizer = Tokenizer()
@@ -46,18 +40,16 @@ def tokenizeData(x_datas):
 	matrixes = tokenizer.texts_to_matrix(x_datas, mode='binary')
 	sequences = tokenizer.texts_to_sequences(x_datas)
 
-	maxlen = max([len(x) - 1 for x in sequences])
 	vocab_size = len(tokenizer.word_index) + 1
-	print(maxlen, vocab_size)
+	print(' Bag Of words : ', vocab_size)
 
-	global MAX_WORDS, MAX_LEN
+	global MAX_WORDS
 	MAX_WORDS = vocab_size
-	MAX_LEN = 30
 
-	print( len(matrixes), len(matrixes[0]) )
+	print(' Examples : ', len(matrixes), len(matrixes[0]) )
 
 	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_maxLen'+ str(MAX_LEN) + '.json', 'w', encoding='utf-8') as f:
+	with io.open('./' + ODIR + '/tokenizer_bagofwords.json', 'w', encoding='utf-8') as f:
 		f.write(json.dumps(tok_json, ensure_ascii=False))
     
 	return matrixes
@@ -65,27 +57,28 @@ def tokenizeData(x_datas):
 X = tokenizeData(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
-def CNN(max_len, max_words):
-    inputs = Input(name='inputs', shape=(max_words,))
+def CNN(max_words):
+	inputs = Input(name='inputs', shape=(max_words,))
 
-    dense1 = Dense(units=2048, activation='relu')(inputs)
-    dropOut1 = Dropout(0.5)(dense1)
+	dense1 = Dense(units=2048, activation='relu')(inputs)
+	dropOut1 = Dropout(0.5)(dense1)
 
-    dense2 = Dense(units=4096, activation='relu')(dropOut1)
-    dropOut2 = Dropout(0.5)(dense2)
-    dense3 = Dense(units=4096, activation='relu')(dropOut2)
-    dropOut3 = Dropout(0.5)(dense3)
+	dense2 = Dense(units=4096, activation='relu')(dropOut1)
+	dropOut2 = Dropout(0.5)(dense2)
 
-    dense4 = Dense(units=2048, activation='relu')(dropOut3)
-    dropOut4 = Dropout(0.5)(dense4)
+	dense3 = Dense(units=4096, activation='relu')(dropOut2)
+	dropOut3 = Dropout(0.5)(dense3)
 
-    global Y_CLASS
-    output = Dense(units=Y_CLASS, activation='softmax')(dropOut4)
-    model = Model(inputs=inputs, outputs=output)
+	dense4 = Dense(units=2048, activation='relu')(dropOut3)
+	dropOut4 = Dropout(0.5)(dense4)
+
+	global Y_CLASS
+	output = Dense(units=Y_CLASS, activation='softmax')(dropOut4)
+	model = Model(inputs=inputs, outputs=output)
 	
-    return model
+	return model
 
-model = CNN(MAX_LEN, MAX_WORDS)
+model = CNN(MAX_WORDS)
 model.summary()
 plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
