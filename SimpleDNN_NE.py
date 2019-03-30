@@ -38,7 +38,6 @@ def tokenizeData(x_datas):
 	tokenizer = Tokenizer()
 	tokenizer.fit_on_texts(x_datas)
 	matrixes = tokenizer.texts_to_matrix(x_datas, mode='binary')
-	sequences = tokenizer.texts_to_sequences(x_datas)
 
 	vocab_size = len(tokenizer.word_index) + 1
 	print(' Bag Of words : ', vocab_size)
@@ -60,19 +59,19 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))
 
-	dense1 = Dense(units=2048, activation='relu')(inputs)
+	dense1 = Dense(units=2048, activation='relu', kernel_regularizer='l2')(inputs)
 	dense1_BN = BatchNormalization()(dense1)
 	dropOut1 = Dropout(0.5)(dense1_BN)
 
-	dense2 = Dense(units=4096, activation='relu')(dropOut1)
+	dense2 = Dense(units=4096, activation='relu', kernel_regularizer='l2')(dropOut1)
 	dense2_BN = BatchNormalization()(dense2)
 	dropOut2 = Dropout(0.5)(dense2_BN)
 
-	dense3 = Dense(units=4096, activation='relu')(dropOut2)
+	dense3 = Dense(units=4096, activation='relu', kernel_regularizer='l2')(dropOut2)
 	dense3_BN = BatchNormalization()(dense3)
 	dropOut3 = Dropout(0.5)(dense3_BN)
 
-	dense4 = Dense(units=2048, activation='relu')(dropOut3)
+	dense4 = Dense(units=2048, activation='relu', kernel_regularizer='l2')(dropOut3)
 	dense4_BN = BatchNormalization()(dense4)
 	dropOut4 = Dropout(0.5)(dense4_BN)
 
