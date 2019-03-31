@@ -10,62 +10,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="transferEMB_CNN.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SavePretrainedWord2VecWeights.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="483">
-                  <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="1D_YoonKim.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
-                  <caret line="74" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="91" column="86" lean-forward="true" selection-start-line="91" selection-start-column="86" selection-end-line="91" selection-end-column="86" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,6 +70,7 @@
         <option value="$PROJECT_DIR$/WithPretrainedWord2VecWeights.py" />
         <option value="$PROJECT_DIR$/SavePretrainedWord2VecWeights.py" />
         <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
+        <option value="$PROJECT_DIR$/multichannelCNN2.py" />
         <option value="$PROJECT_DIR$/multichannelCNN.py" />
       </list>
     </option>
@@ -174,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SavePretrainedWord2VecWeights">
+  <component name="RunManager" selected="Python.multichannelCNN2">
     <configuration name="SavePretrainedWord2VecWeights" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,7 +188,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="noEmb2_DNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="multichannelCNN2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -241,7 +200,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/noEmb2_DNN.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multichannelCNN2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,19 +225,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
-      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-      <item index="2" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-      <item index="3" class="java.lang.String" itemvalue="Python.SavePretrainedWord2VecWeights" />
-      <item index="4" class="java.lang.String" itemvalue="Python.transferEMB_CNN" />
+      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="1" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+      <item index="2" class="java.lang.String" itemvalue="Python.SavePretrainedWord2VecWeights" />
+      <item index="3" class="java.lang.String" itemvalue="Python.transferEMB_CNN" />
+      <item index="4" class="java.lang.String" itemvalue="Python.multichannelCNN2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.SavePretrainedWord2VecWeights" />
-        <item index="1" class="java.lang.String" itemvalue="Python.transferEMB_CNN" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-        <item index="4" class="java.lang.String" itemvalue="Python.noEmb2_DNN" />
+        <item index="0" class="java.lang.String" itemvalue="Python.multichannelCNN2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SavePretrainedWord2VecWeights" />
+        <item index="2" class="java.lang.String" itemvalue="Python.transferEMB_CNN" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+        <item index="4" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
       </list>
     </recent_temporary>
   </component>
@@ -339,13 +298,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3289">
@@ -624,7 +576,7 @@
     <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
-          <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -634,7 +586,7 @@
     <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <caret line="74" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -642,17 +594,25 @@
     <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
-          <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/multichannelCNN2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        <state relative-caret-position="46">
+          <caret line="91" column="86" lean-forward="true" selection-start-line="91" selection-start-column="86" selection-end-line="91" selection-end-column="86" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
