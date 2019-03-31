@@ -79,7 +79,7 @@ embedding= Embedding(input_dim = vocabulary_size,
                             output_dim = EMBEDDING_DIM,
                             weights = [embedding_matrix],
                             input_length = x_limitLen,
-                            trainable=True)
+                            trainable=True)(inputs)
 reshape = Reshape((x_limitLen, 300, 1))(embedding)
 
 conv_0 = Conv2D(filters=256, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
