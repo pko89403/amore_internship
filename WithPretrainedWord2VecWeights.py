@@ -79,16 +79,16 @@ embedding= Embedding(input_dim = vocabulary_size,
                             output_dim = EMBEDDING_DIM,
                             weights = [embedding_matrix],
                             input_length = x_limitLen,
-                            trainable=True)(inputs)
+                            trainable=False)(inputs)
 reshape = Reshape((x_limitLen, 300, 1))(embedding)
 
-conv_0 = Conv2D(filters=256, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
+conv_0 = Conv2D(filters=128, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv2D(filters=256, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+conv_1 = Conv2D(filters=128, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv2D(filters=256, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+conv_2 = Conv2D(filters=128, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
 conv_2_bn = BatchNormalization()(conv_2)
 
 maxpool_0 = MaxPool2D(pool_size=(x_limitLen - 3 + 1, 1), strides=(1,1), padding='valid')(conv_0_bn)
