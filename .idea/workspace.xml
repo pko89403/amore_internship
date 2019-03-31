@@ -16,8 +16,8 @@
           <file leaf-file-name="transferEMB_CNN.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="59" column="38" lean-forward="false" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+                <state relative-caret-position="115">
+                  <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                   </folding>
@@ -25,10 +25,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SavePretrainedWord2VecWeights.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="207">
+                  <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#0#19#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SavePretrainedWord2VecWeights.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
+                <state relative-caret-position="483">
                   <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
@@ -44,8 +56,8 @@
           <file leaf-file-name="1D_YoonKim.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1633">
-                  <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+                <state relative-caret-position="92">
+                  <caret line="74" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -70,7 +82,11 @@
       <find>GPU</find>
       <find>load</find>
       <find>LOAD_WORD2VEC_WEIGHT</find>
+      <find>512</find>
     </findStrings>
+    <replaceStrings>
+      <replace>128</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,6 +112,7 @@
         <option value="$PROJECT_DIR$/WithPretrainedWord2VecWeights.py" />
         <option value="$PROJECT_DIR$/SavePretrainedWord2VecWeights.py" />
         <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
+        <option value="$PROJECT_DIR$/multichannelCNN.py" />
       </list>
     </option>
   </component>
@@ -322,13 +339,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SimpleCNN_NE_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2001">
-          <caret line="101" column="22" lean-forward="false" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_GPU.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -611,28 +621,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
+    <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1633">
-          <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="59" column="38" lean-forward="false" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+        <state relative-caret-position="483">
+          <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
+    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="71" column="48" lean-forward="true" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+        <state relative-caret-position="92">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

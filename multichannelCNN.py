@@ -7,7 +7,7 @@ from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
 
 
-ODIR = 'PretrainedWithCNN'
+ODIR = 'MultiChannelCNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 Y_CLASS = 20
 LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
@@ -59,13 +59,13 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         input_length = x_limitLen,
                         trainable=True)(inputs)
 
-conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+conv_0 = Conv1D(filters=128, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_1 = Conv1D(filters=128, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv1D(filters=128, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
 
 maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
@@ -76,7 +76,27 @@ flat_0 = Flatten()(maxpool_0)
 flat_1 = Flatten()(maxpool_1)
 flat_2 = Flatten()(maxpool_2)
 
-concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
+embedding2 = Embedding(input_dim=vocabulary_size, output_dim=EMBEDDING_DIM, input_length=x_limitLen)(inputs)
+
+conv_20 = Conv1D(filters=128, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding2)
+conv_20_bn = BatchNormalization()(conv_20)
+
+conv_21 = Conv1D(filters=128, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding2)
+conv_21_bn = BatchNormalization()(conv_21)
+
+conv_22 = Conv1D(filters=128, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding2)
+conv_22_bn = BatchNormalization()(conv_22)
+
+maxpool_20 = MaxPool1D(pool_size=2, padding='valid')(conv_20_bn)
+maxpool_21 = MaxPool1D(pool_size=2, padding='valid')(conv_21_bn)
+maxpool_22 = MaxPool1D(pool_size=2, padding='valid')(conv_22_bn)
+
+flat_20 = Flatten()(maxpool_20)
+flat_21 = Flatten()(maxpool_21)
+flat_22 = Flatten()(maxpool_22)
+
+
+concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2, flat_20, flat_21, flat_22])
 dropout = Dropout(0.5)(concatenated)
 
 output = Dense(units=Y_CLASS, activation='softmax')(dropout)
@@ -93,7 +113,7 @@ history = model.fit(X_train,
                     validation_split=0.2,
                     callbacks = [   EarlyStopping(	monitor='val_loss',
 							        patience=10,
-							        min_delta=0.0001)])
+							        min_delta=0.001)])
 
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
