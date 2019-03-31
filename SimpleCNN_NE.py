@@ -61,16 +61,16 @@ def CNN(max_words):
     inputs = Input(name='inputs', shape=(max_words,))
     Reshaped = Reshape(target_shape=(max_words, 1))(inputs)
 
-    conv_0 = Conv1D(filters=64, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_0 = Conv1D(filters=256, kernel_size=3, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
     conv_01_bn = BatchNormalization()(conv_0)
     maxpool_01 = MaxPool1D(pool_size=2, padding='valid')(conv_01_bn)
 
 
-    conv_1 = Conv1D(filters=64, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_1 = Conv1D(filters=256, kernel_size=4, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
     conv_11_bn = BatchNormalization()(conv_1)
     maxpool_11 = MaxPool1D(pool_size=2, padding='valid')(conv_11_bn)
 
-    conv_2 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
+    conv_2 = Conv1D(filters=256, kernel_size=5, padding='valid', activation='relu', kernel_regularizer='l2')(Reshaped)
     conv_21_bn = BatchNormalization()(conv_2)
     maxpool_21 = MaxPool1D(pool_size=2, padding='valid')(conv_21_bn)
 
@@ -83,7 +83,7 @@ def CNN(max_words):
 
 
     global Y_CLASS
-    output = Dense(units=Y_CLASS, activation='softmax')(concatenated)
+    output = Dense(units=Y_CLASS, activation='softmax')(concatenated_drop)
     model = Model(inputs=inputs, outputs=output)
 
     return model
