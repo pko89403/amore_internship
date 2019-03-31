@@ -70,34 +70,36 @@ for word, i in tokenizer.word_index.items():
 del(word_vectors)
 
 from keras.models import Model
-from keras.layers import Input, Embedding, Dense, Conv2D, MaxPool2D
+from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D
 from keras.layers import Reshape, Flatten, Dropout, Concatenate, BatchNormalization
 from keras.callbacks import EarlyStopping
 
 inputs = Input(name='Inputs', shape=(x_limitLen,))
-embedding= Embedding(input_dim = vocabulary_size,
-                            output_dim = EMBEDDING_DIM,
-                            weights = [embedding_matrix],
-                            input_length = x_limitLen,
-                            trainable=False)(inputs)
-reshape = Reshape((x_limitLen, 300, 1))(embedding)
+embedding= Embedding(   input_dim = vocabulary_size,
+                        output_dim = EMBEDDING_DIM,
+                        weights = [embedding_matrix],
+                        input_length = x_limitLen,
+                        trainable=False)(inputs)
 
-conv_0 = Conv2D(filters=128, kernel_size=(3, 64), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
+conv_0 = Conv1D(filters=64, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv2D(filters=128, kernel_size=(4, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+conv_1 = Conv1D(filters=64, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv2D(filters=128, kernel_size=(5, 64), padding='valid',  kernel_regularizer='l2', activation='relu')(reshape)
+conv_2 = Conv1D(filters=64, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
 
-maxpool_0 = MaxPool2D(pool_size=(x_limitLen - 3 + 1, 1), strides=(1,1), padding='valid')(conv_0_bn)
-maxpool_1 = MaxPool2D(pool_size=(x_limitLen - 4 + 1, 1), strides=(1,1), padding='valid')(conv_1_bn)
-maxpool_2 = MaxPool2D(pool_size=(x_limitLen - 5 + 1, 1), strides=(1,1), padding='valid')(conv_2_bn)
+maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
+maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1_bn)
+maxpool_2 = MaxPool1D(pool_size=2, padding='valid')(conv_2_bn)
 
-concatenated = Concatenate(axis=1)([maxpool_0, maxpool_1, maxpool_2])
-flattened = Flatten()(concatenated)
-dropout = Dropout(0.5)(flattened)
+flat_0 = Flatten()(maxpool_0)
+flat_1 = Flatten()(maxpool_1)
+flat_2 = Flatten()(maxpool_2)
+
+concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
+dropout = Dropout(0.5)(concatenated)
 
 output = Dense(units=Y_CLASS, activation='softmax')(dropout)
 
