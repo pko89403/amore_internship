@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 ODIR = 'PretrainedWithCNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 Y_CLASS = 20
-LOAD_WORD2VEC_WEIGHT = "./google300Weights"
+LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
 
 
 df = pd.read_csv(TRAINING_DATA_PATH)
@@ -49,7 +49,7 @@ vocabulary_size = x_maxWords
 
 from keras.models import Model
 from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D
-from keras.layers import Reshape, Flatten, Dropout, Concatenate, BatchNormalization
+from keras.layers import Flatten, Dropout, Concatenate, BatchNormalization
 from keras.callbacks import EarlyStopping
 
 inputs = Input(name='Inputs', shape=(x_limitLen,))
