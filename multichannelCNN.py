@@ -118,9 +118,7 @@ history = model.fit(X_train,
                     batch_size=200,
                     epochs=256,
                     validation_split=0.2,
-                    callbacks = [   EarlyStopping(	monitor='val_loss',
-							        patience=10,
-							        min_delta=0.001)])
+                    )
 
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
