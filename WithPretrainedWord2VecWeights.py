@@ -9,10 +9,8 @@ from sklearn.model_selection import train_test_split
 
 ODIR = 'PretrainedWithCNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
-
 Y_CLASS = 20
-LOAD_WORD2VEC_PATH = '../pretrained_emb_weights/GoogleNews-vectors-negative300.bin.gz'
-
+LOAD_WORD2VEC_WEIGHT = "./google300Weights"
 
 
 df = pd.read_csv(TRAINING_DATA_PATH)
@@ -44,30 +42,10 @@ X_train, X_test, Y_train, Y_test = train_test_split(X,
                                                     test_size=0.25,
                                                     random_state=42)
 
-import gensim
-from gensim.models import Word2Vec
-from gensim.utils import simple_preprocess
-from gensim.models.keyedvectors import KeyedVectors
-
-word_vectors = KeyedVectors.load_word2vec_format(LOAD_WORD2VEC_PATH,
-                                                 binary=True)
-
 import numpy as np
-
+embedding_weights = np.load(LOAD_WORD2VEC_WEIGHT)
 EMBEDDING_DIM = 300
 vocabulary_size = x_maxWords
-
-embedding_matrix = np.zeros((vocabulary_size, EMBEDDING_DIM))
-for word, i in tokenizer.word_index.items():
-    if( i >= vocabulary_size):
-        continue
-    try:
-        embedding_vector = word_vectors[word]
-        embedding_matrix[i] = embedding_vector
-    except KeyError:
-        embedding_matrix[i] = np.random.normal(0, np.sqrt(0.25), EMBEDDING_DIM)
-
-del(word_vectors)
 
 from keras.models import Model
 from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D
@@ -77,17 +55,17 @@ from keras.callbacks import EarlyStopping
 inputs = Input(name='Inputs', shape=(x_limitLen,))
 embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
-                        weights = [embedding_matrix],
+                        weights = [embedding_weights],
                         input_length = x_limitLen,
                         trainable=False)(inputs)
 
-conv_0 = Conv1D(filters=64, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv1D(filters=64, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv1D(filters=64, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
 
 maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
