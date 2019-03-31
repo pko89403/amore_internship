@@ -35,7 +35,10 @@ x_maxWords = len(tokenizer.word_index) + 1
 print('Tokenizing Result', x_maxLen, ', ', x_maxWords)
 x_limitLen = 30
 sequence_matrix = sequence.pad_sequences(sequences, maxlen= x_limitLen)
+
 X = sequence_matrix
+Y = transform_reshape_categorical_Y
+
 X_train, X_test, Y_train, Y_test = train_test_split(X,
                                                     Y,
                                                     test_size=0.25,
