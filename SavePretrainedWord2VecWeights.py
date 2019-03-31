@@ -50,7 +50,7 @@ from gensim.utils import simple_preprocess
 from gensim.models.keyedvectors import KeyedVectors
 
 word_vectors = KeyedVectors.load_word2vec_format(LOAD_WORD2VEC_PATH,
-                                                 binary=True)
+                                                 binary=False)
 
 import numpy as np
 
@@ -69,4 +69,4 @@ for word, i in tokenizer.word_index.items():
 
 del(word_vectors)
 
-np.save("./google300Weights", embedding_matrix)
+np.save("./google300Weights2", embedding_matrix)

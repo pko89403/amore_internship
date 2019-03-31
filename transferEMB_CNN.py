@@ -40,7 +40,7 @@ Y = transform_reshape_categorical_Y
 X_train, X_test, Y_train, Y_test = train_test_split(X,
                                                     Y,
                                                     test_size=0.25,
-                                                    random_state=42)
+                                                    random_state=50000)
 
 import numpy as np
 embedding_weights = np.load(LOAD_WORD2VEC_WEIGHT)
@@ -57,7 +57,7 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
                         weights = [embedding_weights],
                         input_length = x_limitLen,
-                        trainable=False)(inputs)
+                        trainable=True)(inputs)
 
 conv_0 = Conv1D(filters=128, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
@@ -92,7 +92,7 @@ history = model.fit(X_train,
                     epochs=256,
                     validation_split=0.2,
                     callbacks = [   EarlyStopping(	monitor='val_loss',
-							        patience=5,
+							        patience=10,
 							        min_delta=0.0001)])
 
 score = model.evaluate(X_test, Y_test)
