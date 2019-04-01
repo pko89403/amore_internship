@@ -16,8 +16,8 @@
           <file leaf-file-name="SimpleDNN_NE_hyperopt.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="334">
-                  <caret line="102" column="17" lean-forward="false" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+                <state relative-caret-position="345">
+                  <caret line="105" column="43" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#37#0" expanded="true" />
                   </folding>
@@ -605,8 +605,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="102" column="17" lean-forward="false" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+        <state relative-caret-position="345">
+          <caret line="105" column="43" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="43" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
