@@ -46,10 +46,7 @@ def tokenizeData(x_datas):
 	MAX_WORDS = vocab_size
 
 	print(' Examples : ', len(matrixes), len(matrixes[0]) )
-	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_bagofwords.json', 'w', encoding='utf-8') as f:
-		f.write(json.dumps(tok_json, ensure_ascii=False))
-    
+
 	return matrixes
 
 X = tokenizeData(X)
