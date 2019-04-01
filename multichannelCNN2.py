@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from keras.utils import to_categorical
 from keras.preprocessing.text import Tokenizer
@@ -7,7 +7,7 @@ from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
 
 
-ODIR = 'MultiChannelCNN'
+ODIR = 'MultiChannelCNN2'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 Y_CLASS = 20
 LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
@@ -27,7 +27,14 @@ tokenizer = Tokenizer()
 tokenizer.fit_on_texts(X)
 sequences = tokenizer.texts_to_sequences(X)
 
-x_maxLen = max([len(x) - 1 for x in sequences])
+dList = [len(x) - 1 for x in sequences]
+
+x_maxLen = max( dList )
+print('MAX LEN : ', x_maxLen)
+print('MIN LEN : ', min( dList ))
+print('MEAN LEN : ', np.mean(dList))
+print('MED LEN : ', np.median(dList))
+
 x_maxWords = len(tokenizer.word_index) + 1
 
 print('Tokenizing Result', x_maxLen, ', ', x_maxWords)
@@ -42,7 +49,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X,
                                                     test_size=0.25,
                                                     random_state=50000)
 
-import numpy as np
+
 embedding_weights = np.load(LOAD_WORD2VEC_WEIGHT)
 EMBEDDING_DIM = 300
 vocabulary_size = x_maxWords
