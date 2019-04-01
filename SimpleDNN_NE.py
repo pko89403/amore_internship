@@ -46,7 +46,6 @@ def tokenizeData(x_datas):
 	MAX_WORDS = vocab_size
 
 	print(' Examples : ', len(matrixes), len(matrixes[0]) )
-	print(x_datas[0] + ' -> ' + matrixes[0])
 	tok_json = tokenizer.to_json()
 	with io.open('./' + ODIR + '/tokenizer_bagofwords.json', 'w', encoding='utf-8') as f:
 		f.write(json.dumps(tok_json, ensure_ascii=False))
@@ -56,7 +55,7 @@ def tokenizeData(x_datas):
 X = tokenizeData(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
-def CNN(max_words):
+def DNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))
 
 	dense1 = Dense(units=1024, activation='relu')(inputs)
@@ -81,7 +80,7 @@ def CNN(max_words):
 	
 	return model
 
-model = CNN(MAX_WORDS)
+model = DNN(MAX_WORDS)
 model.summary()
 plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
