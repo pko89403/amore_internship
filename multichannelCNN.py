@@ -48,7 +48,7 @@ EMBEDDING_DIM = 300
 vocabulary_size = x_maxWords
 
 from keras.models import Model
-from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D, Add
+from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D
 from keras.layers import Flatten, Dropout, Concatenate, BatchNormalization
 from keras.callbacks import EarlyStopping
 
@@ -98,15 +98,14 @@ maxpool_20 = MaxPool1D(pool_size=2, padding='valid')(conv_20_bn)
 maxpool_21 = MaxPool1D(pool_size=2, padding='valid')(conv_21_bn)
 maxpool_22 = MaxPool1D(pool_size=2, padding='valid')(conv_22_bn)
 
+
 flat_20 = Flatten()(maxpool_20)
 flat_21 = Flatten()(maxpool_21)
 flat_22 = Flatten()(maxpool_22)
 
-concatenated0 = Concatenate(axis=1)([flat_0, flat_1, flat_2])
-concatenated1 = Concatenate(axis=1)([flat_20, flat_21, flat_22])
 
-added = Add()([concatenated0, concatenated1])
-dropout = Dropout(0.6)(added)
+concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2, flat_20, flat_21, flat_22])
+dropout = Dropout(0.6)(concatenated)
 
 output = Dense(units=Y_CLASS, activation='softmax')(dropout)
 
@@ -120,7 +119,6 @@ history = model.fit(X_train,
                     batch_size=200,
                     epochs=256,
                     validation_split=0.2,
-                    verbose=2,
                     callbacks = [   EarlyStopping(	monitor='val_loss',
 							        patience=10,
 							        min_delta=0.001)])
