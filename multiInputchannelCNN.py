@@ -26,6 +26,7 @@ transform_reshape_categorical_Y = to_categorical(transform_reshape_Y,
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(X)
 sequences = tokenizer.texts_to_sequences(X)
+matrixes = tokenizer.texts_to_matrix(X, mode='binary')
 
 x_maxLen = max([len(x) - 1 for x in sequences])
 x_maxWords = len(tokenizer.word_index) + 1
