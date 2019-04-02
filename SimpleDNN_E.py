@@ -1,27 +1,21 @@
 from __future__ import print_function
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 import io
 import json
-import keras
 from keras.utils import plot_model
 from keras.models import Model
-from keras.layers import Input, Dense, Embedding, Flatten, Reshape, Dropout
-from keras.layers import LeakyReLU 
-from keras.optimizers import Adam
+from keras.layers import Input, Dense, Embedding, Flatten, Dropout, BatchNormalization
 from keras.preprocessing.text import *
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping
-from keras import backend as K
 import tensorflowjs as tfjs
 
-ODIR = 'modelDNN'
+ODIR = 'DNN_EMB'
 training_data = './Input_json/train.json.csv'
 
 df = pd.read_csv(training_data)
@@ -47,53 +41,42 @@ def tokenizeData(x_datas):
 	tokenizer.fit_on_texts(x_datas)
 	sequences = tokenizer.texts_to_sequences(x_datas)
     
-	maxlen = max([len(x) - 1 for x in sequences])
 	vocab_size = len(tokenizer.word_index)+1
-	print(maxlen, vocab_size)
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
 	MAX_LEN = 30
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
-	print(sequences_matrix[0])
 
-
-	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_maxLen30.json', 'w', encoding='utf-8') as f:
-		f.write(json.dumps(tok_json, ensure_ascii=False))
-    
 	return sequences_matrix
 
 X = tokenizeData(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
 def DNN(max_len, max_words):
-    print(max_len, max_words)
     inputs = Input(name='inputs', shape=(max_len,))
     embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)    
-    print(embedding.get_shape())
+
     Flattened = Flatten()(embedding)
-    print(Flattened.get_shape())
 
-    dense1 = Dense(units=64)(Flattened)
-    dense1 = LeakyReLU()(dense1)
-    dense2 = Dense(units=64)(dense1)
-    dense2 = LeakyReLU()(dense2)
-    dropout2 = Dropout(0.5)(dense2)
+    dense1 = Dense(units=2048, activation='relu')(Flattened)
+    dense1 = BatchNormalization()(dense1)
+    dense1 = Dropout(0.5)(dense1)
 
-    dense3 = Dense(units=64)(dropout2)
-    dense3 = LeakyReLU()(dense3)
-    dense4 = Dense(units=64)(dense3)
-    dense4 = LeakyReLU()(dense4)
-    dropout3 = Dropout(0.5)(dense4)
+    dense2 = Dense(units=2048, activation='relu')(dense1)
+    dense2 = BatchNormalization()(dense2)
+    dense2 = Dropout(0.5)(dense2)
 
-    dense5 = Dense(units=64)(dropout3)
-    dense5 = LeakyReLU()(dense5)
-    dense6 = Dense(units=64)(dense5)
-    dense6 = LeakyReLU()(dense6)
+    dense3 = Dense(units=2048, activation='relu')(dense2)
+    dense3 = BatchNormalization()(dense3)
+    dense3 = Dropout(0.5)(dense3)
 
-    output = Dense(units=Y_CLASS, activation='softmax')(dense6)
-    
+    dense4 = Dense(units=2048, activation='relu')(dense3)
+    dense4 = BatchNormalization()(dense4)
+    dense4 = Dropout(0.5)(dense4)
+
+    global Y_CLASS
+    output = Dense(units=Y_CLASS, activation='softmax')(dense4)
     model = Model(inputs= inputs, outputs = output)
 
     return model
@@ -105,10 +88,12 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 history = model.fit(	X_train,
 			            Y_train,
-                        batch_size=10,
-                        epochs=10,
+                        batch_size=200,
+                        epochs=1024,
                         validation_split=0.2,
-                    )
+                        callbacks=[EarlyStopping(monitor='val_loss',
+                                                 patience=5,
+                                                 )])
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
