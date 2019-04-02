@@ -54,7 +54,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_len, max_words):
 	print(max_len, max_words)
 	inputs = Input(name='inputs', shape=(max_len,))
-	embedding = Embedding(input_dim=max_words, output_dim=64, input_length=max_len)(inputs)
+	embedding = Embedding(input_dim=max_words, output_dim=300, input_length=max_len)(inputs)
 
 	conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
 	conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_initializer='normal', activation='relu', kernel_regularizer='l2')(embedding)
