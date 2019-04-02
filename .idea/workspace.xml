@@ -14,8 +14,8 @@
       <file leaf-file-name="transfer_emb_cnn.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="57" column="41" lean-forward="false" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+            <state relative-caret-position="345">
+              <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -141,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CBOW_learning">
+  <component name="RunManager" selected="Python.transfer_emb_cnn">
     <configuration name="CBOW_learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -196,24 +196,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="SimpleDNN_NE_hyperopt" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="self_emb_lstm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,20 +214,38 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="transfer_emb_cnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Ing2Con" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transfer_emb_cnn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-      <item index="1" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-      <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-      <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN" />
-      <item index="4" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+      <item index="0" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+      <item index="3" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+      <item index="4" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-        <item index="1" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
+        <item index="0" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+        <item index="2" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
       </list>
     </recent_temporary>
   </component>
@@ -597,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="57" column="41" lean-forward="false" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+        <state relative-caret-position="345">
+          <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

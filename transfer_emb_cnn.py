@@ -30,7 +30,7 @@ sequences = tokenizer.texts_to_sequences(X)
 x_maxLen = max([len(x) - 1 for x in sequences])
 x_maxWords = len(tokenizer.word_index) + 1
 
-x_limitLen = 30
+x_limitLen = 20
 sequence_matrix = sequence.pad_sequences(sequences, maxlen= x_limitLen)
 
 X = sequence_matrix
@@ -55,7 +55,7 @@ inputs = Input(name='Inputs', shape=(x_limitLen,))
 embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
                         weights = [embedding_weights],
-                        input_length = 20,
+                        input_length = x_limitLen,
                         trainable=True)(inputs)
 
 conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
