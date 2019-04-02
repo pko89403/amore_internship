@@ -62,11 +62,11 @@ encoder = Lambda(lambda x : K.mean(x, axis=1),
                  output_shape=lambda shape: (shape[0], ) + shape[2:])( embedding )
 
 dense0 = Dense(units=2048, activation = 'relu')(encoder)
-dropout0 = Dropout(0.7)(dense0)
+dropout0 = Dropout(0.5)(dense0)
 dense1 = Dense(units=2048, activation = 'relu')(dense0)
-dropout1 = Dropout(0.7)(dense1)
+dropout1 = Dropout(0.5)(dense1)
 dense2 = Dense(units=2048, activation = 'relu')(dense1)
-dropout2 = Dropout(0.7)(dense2)
+dropout2 = Dropout(0.5)(dense2)
 dense3 = Dense(units=2048, activation = 'relu')(dense2)
 
 
