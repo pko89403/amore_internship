@@ -1,8 +1,6 @@
 from __future__ import print_function
 
 import pandas as pd
-import io
-import json
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -40,17 +38,13 @@ def tokenizeData(x_datas):
 	matrixes = tokenizer.texts_to_matrix(x_datas, mode='binary')
 
 	vocab_size = len(tokenizer.word_index) + 1
-	print(' Bag Of words : ', vocab_size)
 
 	global MAX_WORDS
 	MAX_WORDS = vocab_size
-
-	print(' Examples : ', len(matrixes), len(matrixes[0]) )
-
 	return matrixes
 
 X = tokenizeData(X)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=99999)
 
 def DNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))
@@ -83,13 +77,13 @@ plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 history = model.fit(	X_train,
-			Y_train,
-			batch_size=200,
-			epochs=1024,
-			validation_split=0.2,
-			callbacks = [	EarlyStopping(	monitor='val_loss',
-							patience=5,
-						)])
+						Y_train,
+						batch_size=200,
+						epochs=1024,
+						validation_split=0.2,
+						callbacks = [	EarlyStopping(	monitor='val_loss',
+										patience=5,
+									)])
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
