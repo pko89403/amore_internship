@@ -50,7 +50,7 @@ def data():
 
 
     X = matrixes
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=42)
     return X_train, Y_train, X_test, Y_test
 
 def DNN(X_train, Y_train, X_test, Y_test):
@@ -81,11 +81,11 @@ def DNN(X_train, Y_train, X_test, Y_test):
 
     model.fit(X_train,
               Y_train,
-              batch_size={{choice([32, 64, 128, 256])}},
+              batch_size={{choice([128, 256])}},
               epochs=1024,
               validation_split=0.2,
               callbacks=[EarlyStopping(monitor='val_loss',
-                                       patience={{choice([2, 5, 10, 20])}},
+                                       patience=10,
                                        )],
               verbose=2 )
 
@@ -96,11 +96,14 @@ def DNN(X_train, Y_train, X_test, Y_test):
 
 best_run, best_model = optim.minimize(model=DNN,
                                       data=data,
-                                      max_evals=10,
                                       algo=tpe.suggest,
+                                      max_evals=15,
                                       trials=Trials())
+best_model.summary()
+X_train, X_test, Y_train, Y_test = data()
+score = best_model.evaluate(X_test, Y_test)
+print('Test loss: ', score[0])
+print('Test Accuracy: ', score[1])
 print(best_run)
-print(best_model)
-
 
 tfjs.converters.save_keras_model(best_model, ODIR)
