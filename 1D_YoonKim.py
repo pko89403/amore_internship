@@ -1,29 +1,20 @@
 from __future__ import print_function
 
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-
-import io
-import json
-
-import keras
 from keras.utils import plot_model
 from keras.models import Model
 from keras.layers import Input, Dense, Embedding, Conv1D, MaxPool1D
 from keras.layers import Reshape, Flatten, Dropout, Concatenate
-from keras.optimizers import Adam
 from keras.preprocessing.text import *
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
 from keras.callbacks import EarlyStopping
-from keras import backend as K
 import tensorflowjs as tfjs
 
-ODIR = '1D_YoonKim'
+ODIR = '1D_YoonKim_Model'
 training_data = './Input_json/train.json.csv'
 
 df = pd.read_csv(training_data)
@@ -40,7 +31,6 @@ Y = Y.reshape(-1,1)
 Y = to_categorical(Y, num_classes=Y_CLASS)
 
 # Split into training and test data
-
 MAX_WORDS = 0
 MAX_LEN = 0
 
@@ -49,20 +39,13 @@ def tokenizeData(x_datas):
 	tokenizer.fit_on_texts(x_datas)
 	sequences = tokenizer.texts_to_sequences(x_datas)
     
-	maxlen = max([len(x) - 1 for x in sequences])
 	vocab_size = len(tokenizer.word_index)+1
-	print(maxlen, vocab_size)
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 64
+	MAX_LEN = 30
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
-	print(sequences_matrix[0])
 
-	tok_json = tokenizer.to_json()
-	with io.open('./' + ODIR + '/tokenizer_maxLen32.json', 'w', encoding='utf-8') as f:
-		f.write(json.dumps(tok_json, ensure_ascii=False))
-    
 	return sequences_matrix
 
 X = tokenizeData(X)

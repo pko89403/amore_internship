@@ -10,30 +10,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="transfer_emb_cnn.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleDNN_NE.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-667">
-              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="1D_YoonKim.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="460">
+                  <caret line="119" column="45" lean-forward="false" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#0#37#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="transfer_emb_cnn.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1426">
+                  <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,7 +77,6 @@
         <option value="$PROJECT_DIR$/noEmb2_DNN.py" />
         <option value="$PROJECT_DIR$/simpleLSTM_TokCHeck.py" />
         <option value="$PROJECT_DIR$/cnnTextClassify1.py" />
-        <option value="$PROJECT_DIR$/1D_YoonKim.py" />
         <option value="$PROJECT_DIR$/2D_YoonKim.py" />
         <option value="$PROJECT_DIR$/test_GPU.py" />
         <option value="$PROJECT_DIR$/SimpleCNN_NE_GPU.py" />
@@ -90,6 +97,7 @@
         <option value="$PROJECT_DIR$/CBOW_learning.py" />
         <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
         <option value="$PROJECT_DIR$/transfer_emb_cnn.py" />
+        <option value="$PROJECT_DIR$/1D_YoonKim.py" />
       </list>
     </option>
   </component>
@@ -529,14 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -560,7 +560,7 @@
         <state relative-caret-position="-805">
           <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="6" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -607,10 +607,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="40" />
+        <state relative-caret-position="1426">
+          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="119" column="45" lean-forward="false" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
