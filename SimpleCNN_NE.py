@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 from keras.utils import plot_model
 from keras.models import Model
-from keras.layers import Input, Dense, Conv1D, MaxPool1D
+from keras.layers import Input, Reshape, Dense, Conv1D, MaxPool1D
 from keras.layers import Flatten, Dropout, Concatenate, BatchNormalization
 from keras.preprocessing.text import *
 from keras.utils import to_categorical
@@ -53,15 +53,17 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 def CNN(max_words):
     inputs = Input(name='inputs', shape=(max_words,))
 
-    conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(inputs)
+    reshape = Reshape(target_shape=(max_words, 1,))(inputs)
+
+    conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', activation='relu')(reshape)
     conv_0 = BatchNormalization()(conv_0)
     maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0)
 
-    conv_1 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(inputs)
+    conv_1 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(reshape)
     conv_1 = BatchNormalization()(conv_1)
     maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1)
 
-    conv_2 = Conv1D(filters=512, kernel_size=3, padding='valid', activation='relu')(inputs)
+    conv_2 = Conv1D(filters=512, kernel_size=4, padding='valid', activation='relu')(reshape)
     conv_2 = BatchNormalization()(conv_2)
     maxpool_2 = MaxPool1D(pool_size=2, padding='valid')(conv_2)
 
