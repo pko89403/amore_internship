@@ -14,8 +14,8 @@
       <file leaf-file-name="2D_YoonKim.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="73" column="71" lean-forward="false" selection-start-line="73" selection-start-column="71" selection-end-line="73" selection-end-column="71" />
+            <state relative-caret-position="276">
+              <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -141,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.1D_YoonKim">
+  <component name="RunManager" selected="Python.2D_YoonKim">
     <configuration name="1D_YoonKim" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,6 +160,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="2D_YoonKim" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Ing2Con" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2D_YoonKim.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="CBOW_learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,24 +191,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CBOW_learning.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="SimpleDNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -234,18 +234,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN" />
-      <item index="2" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
-      <item index="3" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
-      <item index="4" class="java.lang.String" itemvalue="Python.1D_YoonKim" />
+      <item index="1" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+      <item index="2" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
+      <item index="3" class="java.lang.String" itemvalue="Python.1D_YoonKim" />
+      <item index="4" class="java.lang.String" itemvalue="Python.2D_YoonKim" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.1D_YoonKim" />
-        <item index="1" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-        <item index="3" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+        <item index="0" class="java.lang.String" itemvalue="Python.2D_YoonKim" />
+        <item index="1" class="java.lang.String" itemvalue="Python.1D_YoonKim" />
+        <item index="2" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
+        <item index="3" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+        <item index="4" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
       </list>
     </recent_temporary>
   </component>
@@ -599,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="73" column="71" lean-forward="false" selection-start-line="73" selection-start-column="71" selection-end-line="73" selection-end-column="71" />
+        <state relative-caret-position="276">
+          <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
