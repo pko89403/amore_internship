@@ -47,7 +47,7 @@ def data():
 
     X = matrixes
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=42)
-    return X_train, Y_train, X_test, Y_test
+    return X_train, X_test, Y_train, Y_test
 
 def DNN(X_train, Y_train, X_test, Y_test):
     global MAX_WORDS
