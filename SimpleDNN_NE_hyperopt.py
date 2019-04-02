@@ -81,20 +81,21 @@ def DNN(X_train, Y_train, X_test, Y_test):
               epochs=1024,
               validation_split=0.2,
               callbacks=[EarlyStopping(monitor='val_loss',
-                                       patience=10,
+                                       patience=8,
                                        )],
               verbose=2 )
 
     score = model.evaluate(X_test, Y_test)
 
-    return {'loss': score[0], 'status': STATUS_OK, 'model': model}
+    return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
 
 
 best_run, best_model = optim.minimize(model=DNN,
                                       data=data,
                                       algo=tpe.suggest,
-                                      max_evals=15,
-                                      trials=Trials())
+                                      max_evals=10,
+                                      trials=Trials(),
+                                      verbose=False)
 best_model.summary()
 X_train, X_test, Y_train, Y_test = data()
 score = best_model.evaluate(X_test, Y_test)
