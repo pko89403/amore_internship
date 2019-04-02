@@ -1,19 +1,18 @@
-import pandas as pd
+from __future__ import print_function
 
+import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from keras.utils import to_categorical
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
-
+import matplotlib.pyplot as plt
 
 ODIR = 'CBOW_DNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 
 Y_CLASS = 20
 LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
-
-
 
 df = pd.read_csv(TRAINING_DATA_PATH)
 
@@ -52,6 +51,8 @@ EMBEDDING_DIM = 300
 from keras.models import Model
 import keras.backend as K
 from keras.layers import Input, Embedding, Lambda, Dense, Dropout
+from keras.utils import plot_model
+
 inputs = Input(shape=(x_limitLen,))
 embedding = Embedding(input_dim = x_maxWords,
                       output_dim= 300,
@@ -72,11 +73,10 @@ dense3 = Dense(units=2048, activation = 'relu')(dense2)
 
 output = Dense(units=Y_CLASS, activation = 'softmax')(dense3)
 
-
-
 model = Model(inputs = inputs, output=output)
 
 model.summary()
+plot_model(model, to_file='./' + ODIR + '/model.png')
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -92,7 +92,32 @@ history = model.fit(X_train,
                                                min_delta=0.001)]
                     )
 
+# Plot training & validation accuracy values
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('Model accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Test'], loc='upper left')
+plt.savefig('./' + ODIR + '/train_acc.png')
+plt.clf()
+plt.cla()
+plt.close()
+# Plot training & validation loss values
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('Model loss')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Test'], loc='upper left')
+plt.savefig('./' + ODIR + '/train_loss.png')
+plt.clf()
+plt.cla()
+plt.close()
+
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
 
+import tensorflowjs as tfjs
+tfjs.converters.save_keras_model(model, ODIR)

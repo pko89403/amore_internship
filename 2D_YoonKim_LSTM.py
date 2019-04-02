@@ -100,13 +100,13 @@ plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 history = model.fit(	X_train,
-			Y_train,
-			batch_size=32,
-			epochs=256,
-			validation_split=0.25,
-			callbacks = [	EarlyStopping(	monitor='val_loss',
-							patience=10,
-							min_delta=0.0001)])
+						Y_train,
+						batch_size=32,
+						epochs=256,
+						validation_split=0.25,
+						callbacks = [	EarlyStopping(	monitor='val_loss',
+										patience=10,
+										min_delta=0.0001)])
 
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
