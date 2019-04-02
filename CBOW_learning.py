@@ -61,14 +61,13 @@ embedding = Embedding(input_dim = x_maxWords,
 encoder = Lambda(lambda x : K.mean(x, axis=1),
                  output_shape=lambda shape: (shape[0], ) + shape[2:])( embedding )
 
-dense0 = Dense(units=1024, activation = 'relu')(encoder)
-dropout0 = Dropout(0.5)(dense0)
-dense1 = Dense(units=1024, activation = 'relu')(dense0)
-dropout1 = Dropout(0.5)(dense1)
-dense2 = Dense(units=1024, activation = 'relu')(dense1)
-dropout2 = Dropout(0.5)(dense2)
-dense3 = Dense(units=1024, activation = 'relu')(dense2)
-dropout3 = Dropout(0.5)(dense3)
+dense0 = Dense(units=2048, activation = 'relu')(encoder)
+dropout0 = Dropout(0.7)(dense0)
+dense1 = Dense(units=2048, activation = 'relu')(dense0)
+dropout1 = Dropout(0.7)(dense1)
+dense2 = Dense(units=2048, activation = 'relu')(dense1)
+dropout2 = Dropout(0.7)(dense2)
+dense3 = Dense(units=2048, activation = 'relu')(dense2)
 
 
 output = Dense(units=Y_CLASS, activation = 'softmax')(dense3)

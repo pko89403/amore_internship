@@ -53,9 +53,10 @@ def tokenizeData(x_datas):
 
 	global MAX_WORDS, MAX_LEN
 	MAX_WORDS = vocab_size
-	MAX_LEN = 32
+	MAX_LEN = 30
 	sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
 	print(sequences_matrix[0])
+
 
 	tok_json = tokenizer.to_json()
 	with io.open('./' + ODIR + '/tokenizer_maxLen30.json', 'w', encoding='utf-8') as f:
@@ -74,21 +75,21 @@ def DNN(max_len, max_words):
     Flattened = Flatten()(embedding)
     print(Flattened.get_shape())
 
-    dense1 = Dense(units=1024)(Flattened)
+    dense1 = Dense(units=64)(Flattened)
     dense1 = LeakyReLU()(dense1)
-    dense2 = Dense(units=1024)(dense1)
+    dense2 = Dense(units=64)(dense1)
     dense2 = LeakyReLU()(dense2)
     dropout2 = Dropout(0.5)(dense2)
 
-    dense3 = Dense(units=2048)(dropout2)
+    dense3 = Dense(units=64)(dropout2)
     dense3 = LeakyReLU()(dense3)
-    dense4 = Dense(units=2048)(dense3)
+    dense4 = Dense(units=64)(dense3)
     dense4 = LeakyReLU()(dense4)
     dropout3 = Dropout(0.5)(dense4)
 
-    dense5 = Dense(units=512)(dropout3)
+    dense5 = Dense(units=64)(dropout3)
     dense5 = LeakyReLU()(dense5)
-    dense6 = Dense(units=512)(dense5)
+    dense6 = Dense(units=64)(dense5)
     dense6 = LeakyReLU()(dense6)
 
     output = Dense(units=Y_CLASS, activation='softmax')(dense6)
@@ -104,8 +105,8 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 history = model.fit(	X_train,
 			            Y_train,
-                        batch_size=1024,
-                        epochs=64,
+                        batch_size=10,
+                        epochs=10,
                         validation_split=0.2,
                     )
 

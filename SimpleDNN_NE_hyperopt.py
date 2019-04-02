@@ -1,14 +1,11 @@
 from __future__ import print_function
 
 import pandas as pd
-import io
-import json
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 from keras.preprocessing.text import *
-from keras.utils import plot_model, to_categorical
+from keras.utils import to_categorical
 from keras.models import Model
 from keras.layers import Input, Dense
 from keras.layers import Dropout, BatchNormalization
@@ -19,7 +16,6 @@ from hyperopt import Trials, STATUS_OK, tpe
 from hyperas import optim
 from hyperas.distributions import choice, uniform
 
-import tensorflowjs as tfjs
 
 ODIR = 'DNN_NE_HypOpt'
 MAX_WORDS = 0
@@ -105,5 +101,8 @@ score = best_model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
 print(best_run)
+
+
+import tensorflowjs as tfjs
 
 tfjs.converters.save_keras_model(best_model, ODIR)
