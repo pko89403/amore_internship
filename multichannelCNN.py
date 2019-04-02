@@ -57,7 +57,7 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
                         weights = [embedding_weights],
                         input_length = x_limitLen,
-                        trainable=True)(inputs)
+                        trainable=False)(inputs)
 
 conv_0 = Conv1D(filters=256, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
@@ -121,7 +121,7 @@ history = model.fit(X_train,
                     validation_split=0.2,
                     callbacks = [   EarlyStopping(	monitor='val_loss',
 							        patience=10,
-							        min_delta=0.001)])
+							        )])
 
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
