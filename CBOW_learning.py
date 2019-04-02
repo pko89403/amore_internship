@@ -7,7 +7,7 @@ from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
 
 
-ODIR = 'PretrainedWithCNN'
+ODIR = 'CBOW_DNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 
 Y_CLASS = 20
