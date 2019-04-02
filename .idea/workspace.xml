@@ -10,40 +10,52 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="CBOW_learning.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/CBOW_learning.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="11" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#0#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="self_emb_lstm.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#0#37#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="CBOW_learning.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CBOW_learning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-805">
+              <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Keras_Tokenizer_Test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Keras_Tokenizer_Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transfer_emb_cnn.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1725">
+              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,7 +98,6 @@
         <option value="$PROJECT_DIR$/rn_practice.py" />
         <option value="$PROJECT_DIR$/WithPretrainedWord2VecWeights.py" />
         <option value="$PROJECT_DIR$/SavePretrainedWord2VecWeights.py" />
-        <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
         <option value="$PROJECT_DIR$/multiInputchannelCNN.py" />
         <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
         <option value="$PROJECT_DIR$/multichannelCNN2..py" />
@@ -99,6 +110,8 @@
         <option value="$PROJECT_DIR$/self_emb_lstm.py" />
         <option value="$PROJECT_DIR$/2D_YoonKim_LSTM.py" />
         <option value="$PROJECT_DIR$/CBOW_learning.py" />
+        <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
+        <option value="$PROJECT_DIR$/transfer_emb_cnn.py" />
       </list>
     </option>
   </component>
@@ -160,7 +173,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.self_emb_lstm">
+  <component name="RunManager" selected="Python.CBOW_learning">
     <configuration name="CBOW_learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -260,8 +273,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+        <item index="0" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+        <item index="1" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
         <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN" />
         <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
         <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
@@ -442,20 +455,6 @@
     <entry file="file://$PROJECT_DIR$/simpleLSTMNoTok.py" />
     <entry file="file://$PROJECT_DIR$/cnnTextClassify1Dim_UPG.py" />
     <entry file="file://$PROJECT_DIR$/json2csv2.py" />
-    <entry file="file://$PROJECT_DIR$/Keras_Tokenizer_Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loadTokenizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NoEmbeddingCNN_train.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -484,13 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_GPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -510,21 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1840">
           <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transferEMB_CNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="61" column="24" lean-forward="false" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="57" column="54" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -553,7 +530,7 @@
         <state relative-caret-position="345">
           <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="107" selection-end-column="50" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -600,20 +577,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="45" />
+        <state relative-caret-position="322">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CBOW_learning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="45" />
+        <state relative-caret-position="-805">
+          <caret line="70" column="6" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="6" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loadTokenizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Keras_Tokenizer_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_GPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1725">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

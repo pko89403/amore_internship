@@ -7,7 +7,7 @@ from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
 
 
-ODIR = 'PretrainedWithCNN'
+ODIR = 'Transfer_Emb_CNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 Y_CLASS = 20
 LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
@@ -30,7 +30,6 @@ sequences = tokenizer.texts_to_sequences(X)
 x_maxLen = max([len(x) - 1 for x in sequences])
 x_maxWords = len(tokenizer.word_index) + 1
 
-print('Tokenizing Result', x_maxLen, ', ', x_maxWords)
 x_limitLen = 30
 sequence_matrix = sequence.pad_sequences(sequences, maxlen= x_limitLen)
 
@@ -59,13 +58,13 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         input_length = x_limitLen,
                         trainable=True)(inputs)
 
-conv_0 = Conv1D(filters=512, kernel_size=3, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv1D(filters=512, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_1 = Conv1D(filters=512, kernel_size=3, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv1D(filters=512, kernel_size=5, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv1D(filters=512, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
 
 maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
