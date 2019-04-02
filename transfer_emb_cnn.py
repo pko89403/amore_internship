@@ -58,13 +58,13 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         input_length = x_limitLen,
                         trainable=True)(inputs)
 
-conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+conv_0 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
 
-conv_1 = Conv1D(filters=512, kernel_size=3, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_1 = Conv1D(filters=512, kernel_size=8, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
 
-conv_2 = Conv1D(filters=512, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv1D(filters=512, kernel_size=12, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
 
 maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
