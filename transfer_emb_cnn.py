@@ -58,14 +58,17 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         input_length = x_limitLen,
                         trainable=True)(inputs)
 
-conv_0 = Conv1D(filters=512, kernel_size=4, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+conv_0 = Conv1D(filters=256, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
 conv_0_bn = BatchNormalization()(conv_0)
+dropout_0 = Dropout(0.5)(conv_0_bn)
 
-conv_1 = Conv1D(filters=512, kernel_size=8, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_1 = Conv1D(filters=256, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_1_bn = BatchNormalization()(conv_1)
+dropout_1 = Dropout(0.5)(conv_1_bn)
 
-conv_2 = Conv1D(filters=512, kernel_size=12, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv1D(filters=256, kernel_size=8, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
 conv_2_bn = BatchNormalization()(conv_2)
+dropout_2 = Dropout(0.5)(conv_2_bn)
 
 maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
 maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1_bn)
@@ -76,7 +79,7 @@ flat_1 = Flatten()(maxpool_1)
 flat_2 = Flatten()(maxpool_2)
 
 concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
-dropout = Dropout(0.5)(concatenated)
+dropout = Dropout(0.6)(concatenated)
 
 output = Dense(units=Y_CLASS, activation='softmax')(dropout)
 

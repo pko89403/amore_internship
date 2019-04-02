@@ -14,11 +14,21 @@
       <file leaf-file-name="transfer_emb_cnn.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="253">
+              <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="40" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleDNN_NE.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-667">
+              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -503,14 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1973">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2D_YoonKim_LSTM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -595,10 +597,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-667">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="253">
+          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="40" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
