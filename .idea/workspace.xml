@@ -10,36 +10,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="self_emb_lstm.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="299">
-                  <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="SimpleDNN_NE.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1973">
-                  <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="self_emb_lstm.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -93,6 +77,7 @@
         <option value="$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py" />
         <option value="$PROJECT_DIR$/CBOW_learning.py" />
         <option value="$PROJECT_DIR$/simpleLSTM.py" />
+        <option value="$PROJECT_DIR$/self_emb_lstm.py" />
       </list>
     </option>
   </component>
@@ -154,7 +139,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CBOW_learning">
+  <component name="RunManager" selected="Python.self_emb_lstm">
     <configuration name="CBOW_learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,7 +212,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="multichannelCNN2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="self_emb_lstm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -239,26 +224,26 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multichannelCNN2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/self_emb_lstm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.multichannelCNN2" />
-      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-      <item index="2" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-      <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-      <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
+      <item index="1" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+      <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+      <item index="4" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.CBOW_learning" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-        <item index="4" class="java.lang.String" itemvalue="Python.multichannelCNN2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CBOW_learning" />
+        <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
       </list>
     </recent_temporary>
   </component>
@@ -601,9 +586,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="92">
+          <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

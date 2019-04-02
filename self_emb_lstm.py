@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 from keras.utils import plot_model
 from keras.models import Model
-from keras.layers import LSTM, Activation, Dense, Dropout, Input, Embedding
+from keras.layers import LSTM, Activation, Dense, Input, Embedding
 from keras.preprocessing.text import *
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
@@ -45,7 +45,7 @@ def tokenizeData(x_datas):
 X = tokenizeData(X)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
-def LSTM(max_len, max_words):
+def LSTM_Model(max_len, max_words):
     print(max_len, max_words)
     inputs = Input(name='inputs', shape=[max_len])
     layer = Embedding(max_words, 128, input_length=max_len)(inputs)
@@ -56,7 +56,7 @@ def LSTM(max_len, max_words):
     model = Model(inputs=inputs, outputs=layer)
     return model
 
-model = LSTM(MAX_LEN, MAX_WORDS)
+model = LSTM_Model(MAX_LEN, MAX_WORDS)
 model.summary()
 plot_model(model, to_file='./' + ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
