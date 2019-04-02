@@ -55,7 +55,7 @@ inputs = Input(name='Inputs', shape=(x_limitLen,))
 embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
                         weights = [embedding_weights],
-                        input_length = x_limitLen,
+                        input_length = 20,
                         trainable=True)(inputs)
 
 conv_0 = Conv1D(filters=512, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
