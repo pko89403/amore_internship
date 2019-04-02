@@ -78,7 +78,7 @@ def CNN(max_words):
 
     return model
 
-model = CNN(MAX_LEN, MAX_WORDS)
+model = CNN(MAX_WORDS)
 model.summary()
 plot_model(model, to_file='./'+ ODIR + '/model.png')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
