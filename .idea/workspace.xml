@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="loadModel_JSON.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/loadModel_JSON.py">
+      <file leaf-file-name="EnsembleAverageVotting.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EnsembleAverageVotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="45" />
+            <state relative-caret-position="352">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -42,6 +42,7 @@
       <find>LOAD_WORD2VEC_WEIGHT</find>
       <find>512</find>
       <find>tokenizer</find>
+      <find>import</find>
     </findStrings>
     <replaceStrings>
       <replace>128</replace>
@@ -163,7 +164,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="SimpleDNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="SimpleDNN_NE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -175,7 +176,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="C:\Users\G-ICT\Desktop\amore_internship\project\amore_internship\SimpleDNN_E.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN_NE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -211,7 +212,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/loadModel_JSON.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\G-ICT\Desktop\amore_internship\project\amore_internship\EnsembleAverageVotting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -236,19 +237,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN" />
-      <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-      <item index="2" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-      <item index="3" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-      <item index="4" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
+      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
+      <item index="1" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+      <item index="2" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+      <item index="3" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
+      <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-        <item index="2" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+        <item index="2" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+        <item index="3" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +297,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -439,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CLSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/forColab_GPU_save.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -470,25 +464,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleDNN_E.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1058">
-          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multiInputchannelCNN.py" />
     <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -513,13 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multichannelCNN2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -532,16 +505,6 @@
         <state relative-caret-position="1495">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -563,10 +526,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loadModel_JSON.py">
+    <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="45" />
+        <state relative-caret-position="912">
+          <caret line="118" column="17" lean-forward="false" selection-start-line="118" selection-start-column="17" selection-end-line="119" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleDNN_E.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2047">
+          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CLSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-644">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EnsembleAverageVotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
