@@ -55,19 +55,27 @@ def CNN(max_words):
 
     reshape = Reshape(target_shape=(max_words, 1,))(inputs)
 
-    conv_0 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu')(reshape)
+    conv_0 = Conv1D(filters=256, kernel_size=6, padding='valid', activation='relu')(reshape)
     conv_0 = BatchNormalization()(conv_0)
-    maxpool_0 = MaxPool1D(pool_size=5, padding='valid')(conv_0)
+    maxpool_0 = MaxPool1D(pool_size=6, padding='valid')(conv_0)
 
-    conv_1 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu')(maxpool_0)
+    conv_1 = Conv1D(filters=256, kernel_size=5, padding='valid', activation='relu')(maxpool_0)
     conv_1 = BatchNormalization()(conv_1)
     maxpool_1 = MaxPool1D(pool_size=5, padding='valid')(conv_1)
 
-    conv_2 = Conv1D(filters=64, kernel_size=5, padding='valid', activation='relu')(maxpool_1)
+    conv_2 = Conv1D(filters=256, kernel_size=4, padding='valid', activation='relu')(maxpool_1)
     conv_2 = BatchNormalization()(conv_2)
-    maxpool_2 = MaxPool1D(pool_size=5, padding='valid')(conv_2)
+    maxpool_2 = MaxPool1D(pool_size=4, padding='valid')(conv_2)
 
-    flat = Flatten()(maxpool_2)
+    conv_3 = Conv1D(filters=256, kernel_size=3, padding='valid', activation='relu')(maxpool_2)
+    conv_3 = BatchNormalization()(conv_3)
+    maxpool_3 = MaxPool1D(pool_size=3, padding='valid')(conv_3)
+
+    conv_4 = Conv1D(filters=256, kernel_size=2, padding='valid', activation='relu')(maxpool_3)
+    conv_4 = BatchNormalization()(conv_4)
+    maxpool_4 = MaxPool1D(pool_size=2, padding='valid')(conv_4)
+
+    flat = Flatten()(maxpool_4)
     dropout = Dropout(0.5)(flat)
 
     global Y_CLASS
