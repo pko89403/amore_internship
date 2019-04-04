@@ -9,3 +9,5 @@ my_hyp.h5
 *.xml
 __pycache__/temp_model.cpython-36.pyc
 *.pyc
+__pycache__/temp_model.cpython-36.pyc
+*.xml
