@@ -4,8 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-import io
-import json
 from keras.utils import plot_model
 from keras.models import Model
 from keras.layers import Input, Dense, Embedding, Conv2D, MaxPool2D

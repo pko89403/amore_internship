@@ -14,9 +14,11 @@
       <file leaf-file-name="Transfer_EMB_CNN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1699">
-              <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="302">
+              <caret line="94" column="16" lean-forward="true" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -24,8 +26,8 @@
       <file leaf-file-name="2D_YoonKim.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+            <state relative-caret-position="92">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,7 +82,6 @@
         <option value="$PROJECT_DIR$/CBOW_learning.py" />
         <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
         <option value="$PROJECT_DIR$/1D_YoonKim.py" />
-        <option value="$PROJECT_DIR$/2D_YoonKim.py" />
         <option value="$PROJECT_DIR$/CLSTM.py" />
         <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
         <option value="$PROJECT_DIR$/SimpleDNN.py" />
@@ -92,6 +93,7 @@
         <option value="$PROJECT_DIR$/loadModel_JSON.py" />
         <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
         <option value="$PROJECT_DIR$/transfer_emb_cnn.py" />
+        <option value="$PROJECT_DIR$/2D_YoonKim.py" />
         <option value="$PROJECT_DIR$/Transfer_EMB_CNN.py" />
       </list>
     </option>
@@ -309,7 +311,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -570,17 +572,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="92">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1699">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="302">
+          <caret line="94" column="16" lean-forward="true" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
