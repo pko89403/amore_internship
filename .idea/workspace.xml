@@ -11,11 +11,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+      <file leaf-file-name="Transfer_EMB_CNN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2415">
-              <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="-1699">
+              <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2D_YoonKim.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -69,7 +79,6 @@
         <option value="$PROJECT_DIR$/2D_YoonKim_LSTM.py" />
         <option value="$PROJECT_DIR$/CBOW_learning.py" />
         <option value="$PROJECT_DIR$/transferEMB_CNN.py" />
-        <option value="$PROJECT_DIR$/transfer_emb_cnn.py" />
         <option value="$PROJECT_DIR$/1D_YoonKim.py" />
         <option value="$PROJECT_DIR$/2D_YoonKim.py" />
         <option value="$PROJECT_DIR$/CLSTM.py" />
@@ -82,6 +91,8 @@
         <option value="$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py" />
         <option value="$PROJECT_DIR$/loadModel_JSON.py" />
         <option value="$PROJECT_DIR$/SimpleCNN_NE.py" />
+        <option value="$PROJECT_DIR$/transfer_emb_cnn.py" />
+        <option value="$PROJECT_DIR$/Transfer_EMB_CNN.py" />
       </list>
     </option>
   </component>
@@ -146,7 +157,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loadModel_JSON">
+  <component name="RunManager" selected="Python.transfer_emb_cnn">
     <configuration name="SimpleCNN_NE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -178,24 +189,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN_NE.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="SimpleDNN_NE_hyperopt" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -237,20 +230,38 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="transfer_emb_cnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Ing2Con" />
+      <option name="SCRIPT_NAME" value="C:\Users\G-ICT\Desktop\amore_internship\project\amore_internship\Transfer_EMB_CNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
-      <item index="1" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-      <item index="2" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-      <item index="3" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
-      <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="0" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+      <item index="1" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+      <item index="2" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
+      <item index="3" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+      <item index="4" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
-        <item index="1" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
-        <item index="3" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SimpleDNN_NE_hyperopt" />
+        <item index="0" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
+        <item index="1" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
+        <item index="2" class="java.lang.String" itemvalue="Python.SimpleDNN_NE" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SimpleCNN_NE" />
+        <item index="4" class="java.lang.String" itemvalue="Python.multichannelCNN" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +290,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35236004" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35236004" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35236004" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -455,20 +466,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/multiInputchannelCNN.py" />
-    <entry file="file://$PROJECT_DIR$/transfer_emb_cnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1D_YoonKim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="966">
@@ -539,14 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleDNN_E.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -565,8 +554,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="437">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D_YoonKim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="55" column="8" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1699">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>

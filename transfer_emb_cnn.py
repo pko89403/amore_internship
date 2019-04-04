@@ -7,7 +7,7 @@ from keras.preprocessing import sequence
 from sklearn.model_selection import train_test_split
 
 
-ODIR = 'Transfer_Emb_CNN'
+ODIR = 'TRANSFER_EMB_CNN'
 TRAINING_DATA_PATH = './Input_json/train.json.csv'
 Y_CLASS = 20
 LOAD_WORD2VEC_WEIGHT = "./google300Weights.npy"
@@ -30,7 +30,7 @@ sequences = tokenizer.texts_to_sequences(X)
 x_maxLen = max([len(x) - 1 for x in sequences])
 x_maxWords = len(tokenizer.word_index) + 1
 
-x_limitLen = 20
+x_limitLen = 30
 sequence_matrix = sequence.pad_sequences(sequences, maxlen= x_limitLen)
 
 X = sequence_matrix
@@ -47,8 +47,8 @@ EMBEDDING_DIM = 300
 vocabulary_size = x_maxWords
 
 from keras.models import Model
-from keras.layers import Input, Embedding, Dense, Conv1D, MaxPool1D
-from keras.layers import Flatten, Dropout, Concatenate, BatchNormalization
+from keras.layers import Input, Reshape, Embedding, Dense, Conv2D, MaxPool2D
+from keras.layers import Flatten, Dropout, BatchNormalization
 from keras.callbacks import EarlyStopping
 
 inputs = Input(name='Inputs', shape=(x_limitLen,))
@@ -56,32 +56,29 @@ embedding= Embedding(   input_dim = vocabulary_size,
                         output_dim = EMBEDDING_DIM,
                         weights = [embedding_weights],
                         input_length = x_limitLen,
-                        trainable=True)(inputs)
+                        trainable=False)(inputs)
 
-conv_0 = Conv1D(filters=256, kernel_size=2, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+reshape = Reshape((x_limitLen, EMBEDDING_DIM, 1))(embedding)
+
+conv_0 = Conv2D(filters=128, kernel_size=(1,1), padding='valid', kernel_regularizer='l2', activation='relu')(reshape)
 conv_0_bn = BatchNormalization()(conv_0)
-dropout_0 = Dropout(0.5)(conv_0_bn)
+maxpool_0 = MaxPool2D(pool_size=(2,2), padding='valid')(conv_0_bn)
+dropout_0 = Dropout(0.5)(maxpool_0)
 
-conv_1 = Conv1D(filters=256, kernel_size=4, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+
+conv_1 = Conv2D(filters=128, kernel_size=(1,1), padding='valid',  kernel_regularizer='l2', activation='relu')(dropout_0)
 conv_1_bn = BatchNormalization()(conv_1)
-dropout_1 = Dropout(0.5)(conv_1_bn)
+maxpool_1 = MaxPool2D(pool_size=(2,2), padding='valid')(conv_1_bn)
+dropout_1 = Dropout(0.5)(maxpool_1)
 
-conv_2 = Conv1D(filters=256, kernel_size=8, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+conv_2 = Conv2D(filters=128, kernel_size=(1,1), padding='valid',  kernel_regularizer='l2', activation='relu')(dropout_1)
 conv_2_bn = BatchNormalization()(conv_2)
-dropout_2 = Dropout(0.5)(conv_2_bn)
+maxpool_2 = MaxPool2D(pool_size=(2,2), padding='valid')(conv_2_bn)
+dropout_2 = Dropout(0.5)(maxpool_2)
 
-maxpool_0 = MaxPool1D(pool_size=2, padding='valid')(conv_0_bn)
-maxpool_1 = MaxPool1D(pool_size=2, padding='valid')(conv_1_bn)
-maxpool_2 = MaxPool1D(pool_size=2, padding='valid')(conv_2_bn)
+flat_0 = Flatten()(dropout_2)
 
-flat_0 = Flatten()(maxpool_0)
-flat_1 = Flatten()(maxpool_1)
-flat_2 = Flatten()(maxpool_2)
-
-concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
-dropout = Dropout(0.6)(concatenated)
-
-output = Dense(units=Y_CLASS, activation='softmax')(dropout)
+output = Dense(units=Y_CLASS, activation='softmax')(flat_0)
 
 model = Model(inputs=inputs, outputs=output)
 
@@ -94,8 +91,7 @@ history = model.fit(X_train,
                     epochs=256,
                     validation_split=0.2,
                     callbacks = [   EarlyStopping(	monitor='val_loss',
-							        patience=10,
-							        min_delta=0.0001)])
+							                        patience=5)])
 
 score = model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
