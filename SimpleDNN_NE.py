@@ -44,7 +44,7 @@ def tokenizeData(x_datas):
 	return matrixes
 
 X = tokenizeData(X)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=99999)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
 
 def DNN(max_words):
 	inputs = Input(name='inputs', shape=(max_words,))

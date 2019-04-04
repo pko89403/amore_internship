@@ -41,7 +41,7 @@ Y = transform_reshape_categorical_Y
 X_train, X_test, Y_train, Y_test = train_test_split(X,
                                                     Y,
                                                     test_size=0.25,
-                                                    random_state=42)
+                                                    )
 
 import numpy as np
 embedding_weights = np.load(LOAD_WORD2VEC_WEIGHT)
