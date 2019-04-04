@@ -10,18 +10,40 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CLSTM.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CLSTM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1081">
-              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="346">
+                  <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#0#37#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="CLSTM.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/CLSTM.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="43" column="75" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="75" />
+                  <folding>
+                    <element signature="e#0#37#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,7 +100,6 @@
         <option value="$PROJECT_DIR$/2D_YoonKim.py" />
         <option value="$PROJECT_DIR$/Tansfer_CBOW_LSTM.py" />
         <option value="$PROJECT_DIR$/EnsembleAverageVotting.py" />
-        <option value="$PROJECT_DIR$/multichannelCNN.py" />
         <option value="$PROJECT_DIR$/multichannelCNN2.py" />
         <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
         <option value="$PROJECT_DIR$/Transfer_CBOW_DNN.py" />
@@ -88,6 +109,7 @@
         <option value="$PROJECT_DIR$/Data_proc.py" />
         <option value="$PROJECT_DIR$/YoonKim_Hyp.py" />
         <option value="$PROJECT_DIR$/CLSTM.py" />
+        <option value="$PROJECT_DIR$/multichannelCNN.py" />
       </list>
     </option>
   </component>
@@ -152,7 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CLSTM">
+  <component name="RunManager" selected="Python.multichannelCNN">
     <configuration name="CLSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -207,7 +229,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="loadModel_JSON" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="multichannelCNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -219,7 +241,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="C:\Users\G-ICT\Desktop\amore_internship\project\amore_internship\EnsembleAverageVotting.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multichannelCNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -244,19 +266,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
-      <item index="1" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
-      <item index="3" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
-      <item index="4" class="java.lang.String" itemvalue="Python.CLSTM" />
+      <item index="0" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
+      <item index="2" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
+      <item index="3" class="java.lang.String" itemvalue="Python.CLSTM" />
+      <item index="4" class="java.lang.String" itemvalue="Python.multichannelCNN" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.CLSTM" />
-        <item index="1" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
-        <item index="3" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
-        <item index="4" class="java.lang.String" itemvalue="Python.loadModel_JSON" />
+        <item index="0" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CLSTM" />
+        <item index="2" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
+        <item index="4" class="java.lang.String" itemvalue="Python.transfer_emb_cnn" />
       </list>
     </recent_temporary>
   </component>
@@ -278,6 +300,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1796875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -426,13 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multichannelCNN2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="989">
@@ -541,9 +557,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CLSTM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="391">
+          <caret line="43" column="75" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
