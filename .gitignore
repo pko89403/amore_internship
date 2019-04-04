@@ -4,3 +4,4 @@ _pycache_/
 my_hyp.h5
 .idea/workspace.xml
 .idea/workspace.xml
+*.xml
