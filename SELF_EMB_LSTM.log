@@ -1,0 +1,29 @@
+Using TensorFlow backend.
+30 3065
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+inputs (InputLayer)          (None, 30)                0         
+_________________________________________________________________
+embedding_1 (Embedding)      (None, 30, 128)           392320    
+_________________________________________________________________
+lstm_1 (LSTM)                (None, 30, 256)           394240    
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 256)               525312    
+_________________________________________________________________
+out_layer (Dense)            (None, 20)                5140      
+_________________________________________________________________
+activation_1 (Activation)    (None, 20)                0         
+=================================================================
+Total params: 1,317,012
+Trainable params: 1,317,012
+Non-trainable params: 0
+_________________________________________________________________
+Traceback (most recent call last):
+  File "./self_emb_lstm.py", line 61, in <module>
+    plot_model(model, to_file='./' + ODIR + '/model.png')
+  File "/usr/local/lib/python3.6/dist-packages/keras/utils/vis_utils.py", line 138, in plot_model
+    dot.write(to_file, format=extension)
+  File "/usr/local/lib/python3.6/dist-packages/pydot.py", line 1818, in write
+    with io.open(path, mode='wb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './SELF_EMB_LSTM/model.png'
