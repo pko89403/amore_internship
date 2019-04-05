@@ -1,100 +1,71 @@
 from __future__ import print_function
 
 import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-
-from keras.utils import plot_model
-from keras.models import Model
-from keras.layers import LSTM, Activation, Dense, Input, Embedding
 from keras.preprocessing.text import *
 from keras.preprocessing import sequence
 from keras.utils import to_categorical
+
+from Data_proc import text2seq, MAX_LEN, MAX_WORD, Y_CLASS, TRAINING_PATH
+import numpy as np
+
+from keras.utils import plot_model
+from keras.models import Model
+from keras.layers import Input, Dense, Embedding, LSTM
+from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping
+
+from hyperopt import Trials, STATUS_OK, tpe
+from hyperas import optim
+from hyperas.distributions import choice, uniform
+
 import tensorflowjs as tfjs
 
 ODIR = 'SELF_EMB_LSTM'
-TRAINING_DATA_PATH = './Input_json/train.json.csv'
 
-df = pd.read_csv(TRAINING_DATA_PATH)
-X = df.ingredients
-Y = df.cuisine
-Y_CLASS = 20 # NUM OF CLASS
 
-le = LabelEncoder()
-Y = le.fit_transform(Y)
-Y = Y.reshape(-1,1)
-Y = to_categorical(Y, num_classes=Y_CLASS)
 
-MAX_WORDS = 0
-MAX_LEN = 30
+def LSTM_Model(X_train, Y_train, X_test, Y_test):
+    inputs = Input(name='inputs', shape=(MAX_LEN,))
+    embedding = Embedding(input_dim=MAX_WORD, output_dim=300, input_length=MAX_LEN)(inputs)
 
-def tokenizeData(x_datas):
-    tokenizer = Tokenizer()
-    tokenizer.fit_on_texts(x_datas)
-    sequences = tokenizer.texts_to_sequences(x_datas)
+    lstm0 = LSTM({{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(embedding)
+    lstm1 = LSTM({{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(lstm0)
+    lstm2 = LSTM({{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(lstm1)
+    lstm3 = LSTM({{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(lstm2)
+    lstm4 = LSTM({{choice([128,256,512,1024])}},dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}})(lstm3)
 
-    vocab_size = len(tokenizer.word_index)+1
+    output = Dense(Y_CLASS, activation='softmax')(lstm4)
+    model = Model(inputs=inputs, outputs=output)
 
-    global MAX_WORDS, MAX_LEN
-    MAX_WORDS = vocab_size
-    sequences_matrix = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
-    return sequences_matrix
+    model.compile(loss='categorical_crossentropy', optimizer=Adam(lr={{choice([10 ** -3, 10 ** -2, 10 ** -1])}}),
+                  metrics=['accuracy'])
 
-X = tokenizeData(X)
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
+    model.fit(X_train,
+              Y_train,
+              batch_size={{choice([128, 256])}},
+              epochs=1024,
+              validation_split=0.2,
+              callbacks=[EarlyStopping(monitor='val_loss', patience=8, )],
+              verbose=2)
 
-def LSTM_Model(max_len, max_words):
-    print(max_len, max_words)
-    inputs = Input(name='inputs', shape=[max_len])
-    layer = Embedding(max_words, 128, input_length=max_len)(inputs)
-    layer = LSTM(256, dropout=0.5, recurrent_dropout=0.5, return_sequences=True)(layer)
-    layer = LSTM(256, dropout=0.5, recurrent_dropout=0.5)(layer)
-    layer = Dense(Y_CLASS, name = 'out_layer')(layer)
-    layer = Activation('softmax')(layer)
-    model = Model(inputs=inputs, outputs=layer)
-    return model
+    score = model.evaluate(X_test, Y_test)
+    return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
 
-model = LSTM_Model(MAX_LEN, MAX_WORDS)
-model.summary()
-plot_model(model, to_file='./' + ODIR + '/model.png')
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-history = model.fit(  X_train,
-            Y_train,
-            batch_size=256,
-            epochs=256,
-            validation_split=0.25,
-            callbacks = [EarlyStopping( monitor='val_loss',
-				                        patience=5,
-				                        min_delta=0.0001)])
+best_run, best_model = optim.minimize(model=LSTM_Model,
+                                      data=text2seq,
+                                      algo=tpe.suggest,
+                                      max_evals=10,
+                                      trials=Trials(),
+                                      verbose=False)
 
-# Plot training & validation accuracy values
-plt.plot(history.history['acc'])
-plt.plot(history.history['val_acc'])
-plt.title('Model accuracy')
-plt.ylabel('Accuracy')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Test'], loc='upper left')
-plt.savefig('./' + ODIR + '/train_acc.png')
-plt.clf()
-plt.cla()
-plt.close()
-# Plot training & validation loss values
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.title('Model loss')
-plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Test'], loc='upper left')
-plt.savefig('./' + ODIR + '/train_loss.png')
-plt.clf()
-plt.cla()
-plt.close()
-
-score = model.evaluate(X_test, Y_test)
+best_model.summary()
+plot_model(best_model, to_file='./' + ODIR + '/model.png')
+X_train, X_test, Y_train, Y_test = text2seq()
+score = best_model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
-
-tfjs.converters.save_keras_model(model, ODIR)
+print(best_run)
+tfjs.converters.save_keras_model(best_model, ODIR)
