@@ -41,11 +41,11 @@ def CBOW_LSTM(X_train, Y_train, X_test, Y_test):
 
     reshape = Reshape((1, 300))(encoder)
 
-    layer = LSTM({{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(reshape)
-    layer = LSTM(units={{choice([256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}})(layer)
+    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(reshape)
+    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}})(layer)
 
     output = Dense(units=Y_CLASS, activation = 'softmax')(layer)
 
