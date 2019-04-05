@@ -60,7 +60,7 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
               callbacks=[EarlyStopping(monitor='val_loss', patience=8, )],
               verbose=2)
 
-    score = model.evaluate(X_test, Y_test)
+    score = model.evaluate(X_test, Y_test, verbose=2)
     return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
 
 best_run, best_model = optim.minimize(model=CBOW_DNN,

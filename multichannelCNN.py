@@ -46,7 +46,6 @@ def MultiChannelCNN1(X_train, Y_train, X_test, Y_test):
     conv_0 = Conv1D(filters=filterCnt , kernel_size={{choice([2,3,4,5,6])}}, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
     conv_0_bn = BatchNormalization()(conv_0)
 
-
     conv_1 = Conv1D(filters=filterCnt , kernel_size={{choice([2,3,4,5,6])}}, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
     conv_1_bn = BatchNormalization()(conv_1)
 
