@@ -12,7 +12,7 @@ import numpy as np
 
 from keras.utils import plot_model
 from keras.models import Model
-from keras.layers import Input, Dense, Embedding, Lambda, Dropout
+from keras.layers import Input, Dense, Embedding, Lambda, Dropout, BatchNormalization
 import keras.backend as K
 from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping
@@ -38,12 +38,19 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
     encoder = Lambda(lambda x : K.mean(x, axis=1), output_shape=lambda shape: (shape[0], ) + shape[2:])(embedding)
 
     dense0 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(encoder)
+    dense0 = BatchNormalization()(dense0)
     dropout0 = Dropout({{uniform(0, 1)}})(dense0)
+
     dense1 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout0)
+    dense1 = BatchNormalization()(dense1)
     dropout1 = Dropout({{uniform(0, 1)}})(dense1)
+
     dense2 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout1)
+    dense2 = BatchNormalization()(dense2)
     dropout2 = Dropout({{uniform(0, 1)}})(dense2)
+
     dense3 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout2)
+    dense3 = BatchNormalization()(dense3)
     dropout3 = Dropout({{uniform(0, 1)}})(dense3)
 
     output = Dense(units=Y_CLASS, activation = 'softmax')(dropout3)
