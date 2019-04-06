@@ -23,47 +23,53 @@ from hyperas.distributions import choice, uniform
 
 import tensorflowjs as tfjs
 
-
 ODIR = 'Transfer_CBOW_LSTM'
+
 
 def CBOW_LSTM(X_train, Y_train, X_test, Y_test):
     EMBEDDING_W = np.load("./google300Weights.npy")
 
     inputs = Input(shape=(MAX_LEN,))
-    embedding = Embedding(input_dim = MAX_WORD,
-                          output_dim= 300,
-                          weights = [EMBEDDING_W],
+    embedding = Embedding(input_dim=MAX_WORD,
+                          output_dim=300,
+                          weights=[EMBEDDING_W],
                           input_length=MAX_LEN,
-                          trainable=True)(inputs)
+                          trainable={{choice([True, False])}})(inputs)
 
-    encoder=Lambda(lambda x : K.mean(x, axis=1),
-                    output_shape=lambda shape: (shape[0], 1) + shape[2:])( embedding )
+    encoder = Lambda(lambda x: K.mean(x, axis=1),
+                     output_shape=lambda shape: (shape[0], 1) + shape[2:])(embedding)
 
     reshape = Reshape((1, 300))(encoder)
 
-    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(reshape)
-    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([128,256,512,1024])}}, dropout={{uniform(0, 1)}}, recurrent_dropout={{uniform(0, 1)}})(layer)
+    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
+                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(reshape)
+    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
+                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
+                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
+                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
+    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
+                 recurrent_dropout={{uniform(0, 1)}})(layer)
 
-    output = Dense(units=Y_CLASS, activation = 'softmax')(layer)
+    output = Dense(units=Y_CLASS, activation='softmax')(layer)
 
-    model = Model(inputs = inputs, output=output)
+    model = Model(inputs=inputs, output=output)
 
     model.compile(loss='categorical_crossentropy', optimizer=Adam(lr={{choice([10 ** -3, 10 ** -2, 10 ** -1])}}),
                   metrics=['accuracy'])
 
     model.fit(X_train,
               Y_train,
-              batch_size={{choice([128, 256])}},
+              batch_size={{choice([128, 256, 512])}},
               epochs=1024,
               validation_split=0.2,
-              callbacks=[EarlyStopping(monitor='val_loss',patience=8,)],
+              callbacks=[EarlyStopping(monitor='val_loss', patience=16)],
               verbose=2)
 
     score = model.evaluate(X_test, Y_test)
     return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
+
 
 best_run, best_model = optim.minimize(model=CBOW_LSTM,
                                       data=text2seq,
