@@ -23,11 +23,11 @@ from hyperas.distributions import choice, uniform
 
 import tensorflowjs as tfjs
 
-
 ODIR = 'MultiChannelCNN2'
 
+
 def MultiChannelCNN2(X_train, Y_train, X_test, Y_test):
-    filterCnt = {{choice([128,256,512,1024])}}
+    filterCnt = {{choice([128, 256, 512, 1024])}}
 
     kernel_size_0 = {{choice([2, 3, 4, 5, 6])}}
     kernel_size_1 = {{choice([2, 3, 4, 5, 6])}}
@@ -39,19 +39,22 @@ def MultiChannelCNN2(X_train, Y_train, X_test, Y_test):
 
     EMBEDDING_W = np.load("./google300Weights.npy")
     inputs = Input(name='Inputs', shape=(MAX_LEN,))
-    embedding=Embedding(input_dim=MAX_WORD,
-                        output_dim=300,
-                        weights=[EMBEDDING_W],
-                        input_length=MAX_LEN,
-                        trainable=False)(inputs)
+    embedding = Embedding(input_dim=MAX_WORD,
+                          output_dim=300,
+                          weights=[EMBEDDING_W],
+                          input_length=MAX_LEN,
+                          trainable={{choice([True, False])}})(inputs)
 
-    conv_0 = Conv1D(filters=filterCnt, kernel_size=kernel_size_0, padding='valid', kernel_regularizer='l2', activation='relu')(embedding)
+    conv_0 = Conv1D(filters=filterCnt, kernel_size=kernel_size_0, padding='valid', kernel_regularizer='l2',
+                    activation='relu')(embedding)
     conv_0_bn = BatchNormalization()(conv_0)
 
-    conv_1 = Conv1D(filters=filterCnt, kernel_size=kernel_size_1, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+    conv_1 = Conv1D(filters=filterCnt, kernel_size=kernel_size_1, padding='valid', kernel_regularizer='l2',
+                    activation='relu')(embedding)
     conv_1_bn = BatchNormalization()(conv_1)
 
-    conv_2 = Conv1D(filters=filterCnt , kernel_size=kernel_size_2, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding)
+    conv_2 = Conv1D(filters=filterCnt, kernel_size=kernel_size_2, padding='valid', kernel_regularizer='l2',
+                    activation='relu')(embedding)
     conv_2_bn = BatchNormalization()(conv_2)
 
     maxpool_0 = MaxPool1D(pool_size=pool_size_0, padding='valid')(conv_0_bn)
@@ -62,17 +65,20 @@ def MultiChannelCNN2(X_train, Y_train, X_test, Y_test):
     flat_1 = Flatten()(maxpool_1)
     flat_2 = Flatten()(maxpool_2)
 
-    embedding2=Embedding(input_dim=MAX_WORD,
-                         output_dim=300,
-                         input_length=MAX_LEN)(inputs)
+    embedding2 = Embedding(input_dim=MAX_WORD,
+                           output_dim=300,
+                           input_length=MAX_LEN)(inputs)
 
-    conv_20 = Conv1D(filters=filterCnt, kernel_size=kernel_size_0, padding='valid', kernel_regularizer='l2', activation='relu')(embedding2)
+    conv_20 = Conv1D(filters=filterCnt, kernel_size=kernel_size_0, padding='valid', kernel_regularizer='l2',
+                     activation='relu')(embedding2)
     conv_20_bn = BatchNormalization()(conv_20)
 
-    conv_21 = Conv1D(filters=filterCnt, kernel_size=kernel_size_1, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding2)
+    conv_21 = Conv1D(filters=filterCnt, kernel_size=kernel_size_1, padding='valid', kernel_regularizer='l2',
+                     activation='relu')(embedding2)
     conv_21_bn = BatchNormalization()(conv_21)
 
-    conv_22 = Conv1D(filters=filterCnt, kernel_size=kernel_size_2, padding='valid',  kernel_regularizer='l2', activation='relu')(embedding2)
+    conv_22 = Conv1D(filters=filterCnt, kernel_size=kernel_size_2, padding='valid', kernel_regularizer='l2',
+                     activation='relu')(embedding2)
     conv_22_bn = BatchNormalization()(conv_22)
 
     maxpool_20 = MaxPool1D(pool_size=pool_size_0, padding='valid')(conv_20_bn)
@@ -94,15 +100,16 @@ def MultiChannelCNN2(X_train, Y_train, X_test, Y_test):
 
     model.compile(loss='categorical_crossentropy', optimizer=Adam(lr={{choice([10 ** -3, 10 ** -2, 10 ** -1])}}),
                   metrics=['accuracy'])
-    model.fit(X_train,Y_train,
-              batch_size={{choice([128, 256])}},
+    model.fit(X_train, Y_train,
+              batch_size={{choice([128, 256, 512])}},
               epochs=1024,
               validation_split=0.2,
-              callbacks=[EarlyStopping(monitor='val_loss',patience=5,)],
+              callbacks=[EarlyStopping(monitor='val_loss', patience=16)],
               verbose=2)
 
     score = model.evaluate(X_test, Y_test)
     return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
+
 
 best_run, best_model = optim.minimize(model=MultiChannelCNN2,
                                       data=text2seq,
