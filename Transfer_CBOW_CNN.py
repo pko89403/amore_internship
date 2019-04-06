@@ -34,7 +34,7 @@ def CBOW_CNN(X_train, Y_train, X_test, Y_test):
                           output_dim= 300,
                           weights = [EMBEDDING_W],
                           input_length=MAX_LEN,
-                          trainable=False)(inputs)
+                          trainable=True)(inputs)
 
     encoder=Lambda(lambda x : K.mean(x, axis=1),
                     output_shape=lambda shape: (shape[0], 1) + shape[2:])( embedding )
