@@ -23,7 +23,7 @@ from hyperas.distributions import choice, uniform
 
 import tensorflowjs as tfjs
 
-ODIR = 'CBOW_DNN'
+ODIR = 'Transfer_CBOW_DNN'
 
 def CBOW_DNN(X_train, Y_train, X_test, Y_test):
     EMBEDDING_W = np.load("./google300Weights.npy")
@@ -33,7 +33,7 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
                         output_dim= 300,
                         weights = [EMBEDDING_W],
                         input_length=MAX_LEN,
-                        trainable=False)(inputs)
+                        trainable=True)(inputs)
 
     encoder = Lambda(lambda x : K.mean(x, axis=1), output_shape=lambda shape: (shape[0], ) + shape[2:])(embedding)
 
