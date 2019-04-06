@@ -37,19 +37,19 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
 
     encoder = Lambda(lambda x : K.mean(x, axis=1), output_shape=lambda shape: (shape[0], ) + shape[2:])(embedding)
 
-    dense0 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu', kernel_regularizer='l2',)(encoder)
+    dense0 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(encoder)
     dense0 = BatchNormalization()(dense0)
     dropout0 = Dropout({{uniform(0, 1)}})(dense0)
 
-    dense1 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu', kernel_regularizer='l2',)(dropout0)
+    dense1 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout0)
     dense1 = BatchNormalization()(dense1)
     dropout1 = Dropout({{uniform(0, 1)}})(dense1)
 
-    dense2 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu', kernel_regularizer='l2',)(dropout1)
+    dense2 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout1)
     dense2 = BatchNormalization()(dense2)
     dropout2 = Dropout({{uniform(0, 1)}})(dense2)
 
-    dense3 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu', kernel_regularizer='l2',)(dropout2)
+    dense3 = Dense(units={{choice([256,512,1024,2048])}}, activation = 'relu')(dropout2)
     dense3 = BatchNormalization()(dense3)
     dropout3 = Dropout({{uniform(0, 1)}})(dense3)
 
@@ -61,10 +61,10 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
                   metrics=['accuracy'])
 
     model.fit(X_train, Y_train,
-              batch_size={{choice([128, 256])}},
+              batch_size={{choice([128, 256, 512])}},
               epochs=1024,
               validation_split=0.2,
-              callbacks=[EarlyStopping(monitor='val_loss', patience=8, )],
+              callbacks=[EarlyStopping(monitor='val_loss', patience=16, )],
               )
 
     score = model.evaluate(X_test, Y_test)
