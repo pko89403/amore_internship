@@ -12,55 +12,37 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="Transfer_CBOW_LSTM.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Transfer_CBOW_LSTM.py">
+        <leaf>
+          <file leaf-file-name="Transfer_CBOW_CNN.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Transfer_CBOW_CNN.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="461">
-                  <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Transfer_EMB_CNN.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-413">
-                  <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="multichannelCNN.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/multichannelCNN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="713">
-                  <caret line="66" column="119" lean-forward="false" selection-start-line="66" selection-start-column="95" selection-end-line="66" selection-end-column="119" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SimpleDNN_E.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/SimpleDNN_E.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-344">
-                  <caret line="57" column="45" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="45" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Transfer_CBOW_DNN.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Transfer_CBOW_DNN.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+                <state relative-caret-position="115">
+                  <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#37#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CLSTM.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CLSTM.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="410">
+                  <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#37#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="YoonKim_Hyp.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/YoonKim_Hyp.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="437">
+                  <caret line="46" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -69,11 +51,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="SimpleDNN_NE_hyperopt.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
+          <file leaf-file-name="Transfer_CBOW_LSTM.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Transfer_CBOW_LSTM.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-276">
-                  <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="44" />
+                <state relative-caret-position="231">
+                  <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -143,13 +125,14 @@
         <option value="$PROJECT_DIR$/1D_YoonKim.py" />
         <option value="$PROJECT_DIR$/Data_proc.py" />
         <option value="$PROJECT_DIR$/YoonKim_Hyp.py" />
-        <option value="$PROJECT_DIR$/CLSTM.py" />
         <option value="$PROJECT_DIR$/self_emb_lstm.py" />
         <option value="$PROJECT_DIR$/multichannelCNN.py" />
         <option value="$PROJECT_DIR$/Tansfer_CBOW_LSTM.py" />
         <option value="$PROJECT_DIR$/Transfer_CBOW_LSTM.py" />
         <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
         <option value="$PROJECT_DIR$/Transfer_CBOW_DNN.py" />
+        <option value="$PROJECT_DIR$/CLSTM.py" />
+        <option value="$PROJECT_DIR$/Transfer_CBOW_CNN.py" />
       </list>
     </option>
   </component>
@@ -214,7 +197,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Tansfer_CBOW_LSTM">
+  <component name="RunManager" selected="Python.Transfer_CBOW_CNN">
     <configuration name="CLSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -251,7 +234,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="YoonKim_Hyp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Transfer_CBOW_CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -263,7 +246,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Ing2Con" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YoonKim_Hyp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Transfer_CBOW_CNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -307,18 +290,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
-      <item index="1" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
-      <item index="2" class="java.lang.String" itemvalue="Python.CLSTM" />
-      <item index="3" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-      <item index="4" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+      <item index="1" class="java.lang.String" itemvalue="Python.CLSTM" />
+      <item index="2" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+      <item index="3" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Transfer_CBOW_CNN" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
-        <item index="1" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
-        <item index="2" class="java.lang.String" itemvalue="Python.multichannelCNN" />
-        <item index="3" class="java.lang.String" itemvalue="Python.CLSTM" />
-        <item index="4" class="java.lang.String" itemvalue="Python.YoonKim_Hyp" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Transfer_CBOW_CNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Tansfer_CBOW_LSTM" />
+        <item index="2" class="java.lang.String" itemvalue="Python.self_emb_lstm" />
+        <item index="3" class="java.lang.String" itemvalue="Python.multichannelCNN" />
+        <item index="4" class="java.lang.String" itemvalue="Python.CLSTM" />
       </list>
     </recent_temporary>
   </component>
@@ -347,7 +330,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35236004" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3513812" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3513812" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -377,7 +360,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SimpleCNN_NE.py" />
     <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1679">
@@ -442,13 +424,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loadTokenizer.py" />
-    <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/forColab_GPU_save.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -504,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YoonKim_Hyp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multichannelCNN2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -532,20 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CLSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="77" column="50" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="77" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EnsembleAverageVotting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -562,34 +516,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Transfer_CBOW_LSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleDNN_E.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-344">
           <caret line="57" column="45" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SavePretrainedWord2VecWeights.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -602,10 +540,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/self_emb_lstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transfer_EMB_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Transfer_CBOW_DNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="318">
+          <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#37#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transfer_CBOW_LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YoonKim_Hyp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CLSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transfer_CBOW_CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
