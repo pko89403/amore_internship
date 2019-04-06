@@ -33,7 +33,7 @@ def CBOW_DNN(X_train, Y_train, X_test, Y_test):
                         output_dim= 300,
                         weights = [EMBEDDING_W],
                         input_length=MAX_LEN,
-                        trainable=True)(inputs)
+                        trainable={{choice([True,False])}})(inputs)
 
     encoder = Lambda(lambda x : K.mean(x, axis=1), output_shape=lambda shape: (shape[0], ) + shape[2:])(embedding)
 

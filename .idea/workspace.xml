@@ -43,11 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Transfer_CBOW_LSTM.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Transfer_CBOW_LSTM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Transfer_CBOW_LSTM.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
               <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transfer_CBOW_DNN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Transfer_CBOW_DNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -127,12 +137,12 @@
         <option value="$PROJECT_DIR$/self_emb_lstm.py" />
         <option value="$PROJECT_DIR$/Tansfer_CBOW_LSTM.py" />
         <option value="$PROJECT_DIR$/SimpleDNN_NE.py" />
-        <option value="$PROJECT_DIR$/Transfer_CBOW_DNN.py" />
         <option value="$PROJECT_DIR$/CLSTM.py" />
         <option value="$PROJECT_DIR$/multichannelCNN2.py" />
         <option value="$PROJECT_DIR$/multichannelCNN.py" />
         <option value="$PROJECT_DIR$/Transfer_CBOW_CNN.py" />
         <option value="$PROJECT_DIR$/Transfer_CBOW_LSTM.py" />
+        <option value="$PROJECT_DIR$/Transfer_CBOW_DNN.py" />
       </list>
     </option>
   </component>
@@ -560,16 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Transfer_CBOW_DNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleDNN_NE_hyperopt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -624,6 +624,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transfer_CBOW_DNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
           <folding />
         </state>
       </provider>
