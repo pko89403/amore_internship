@@ -103,6 +103,7 @@ def MultiChannelCNN2(X_train, Y_train, X_test, Y_test):
     model.fit(X_train, Y_train,
               batch_size={{choice([128, 256, 512])}},
               epochs=1024,
+              shuffle=True,
               validation_split=0.2,
               callbacks=[EarlyStopping(monitor='val_loss', patience=16)],
               verbose=2)

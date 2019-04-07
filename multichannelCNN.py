@@ -105,6 +105,7 @@ def MultiChannelCNN1(X_train, Y_train, X_test, Y_test):
               batch_size={{choice([128, 256, 512])}},
               epochs=1024,
               validation_split=0.2,
+              shuffle=True,
               callbacks=[EarlyStopping(monitor='val_loss', patience=16, )],
               verbose=2)
 

@@ -61,6 +61,7 @@ def CBOW_LSTM(X_train, Y_train, X_test, Y_test):
 
     model.fit(X_train,
               Y_train,
+              shuffle=True,
               batch_size={{choice([128, 256, 512])}},
               epochs=1024,
               validation_split=0.2,

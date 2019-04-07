@@ -49,6 +49,7 @@ def DNN(X_train, Y_train, X_test, Y_test):
               Y_train,
               batch_size={{choice([128, 256])}},
               epochs=1024,
+              shuffle=True,
               validation_split=0.2,
               callbacks=[EarlyStopping(monitor='val_loss',
                                        patience=8,
