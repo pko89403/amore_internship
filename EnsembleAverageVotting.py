@@ -10,9 +10,17 @@ from keras.models import Model
 from keras.layers import Input, Average
 from Data_proc import text2seq, text2matrix, MAX_WORD, Y_CLASS, TRAINING_PATH, MAX_LEN
 
-LSTM_NE = tfjs.converters.load_keras_model('./LSTM_NE_HypOpt/model.json')
-LSTM_NE.save('LSTM_NE_hyp.h5')
-LSTM_NE_MODEL = load_model('LSTM_NE_hyp.h5')
+X_trainA, X_testA, Y_trainA, Y_testA = text2seq()
+X_trainB, X_testB, Y_trainB, Y_testB = text2matrix()
+
+
+print(Y_testA[0], Y_testB[0])
+
+
+
+DNN_NE = tfjs.converters.load_keras_model('./DNN_NE_HypOpt/model.json')
+DNN_NE.save('DNN_NE_hyp.h5')
+DNN_NE_MODEL = load_model('DNN_NE_hyp.h5')
 
 MultiChannelCNN = tfjs.converters.load_keras_model('./MultiChannelCNN/model.json')
 MultiChannelCNN.save('MultiChannelCNN_hyp.h5')
@@ -24,27 +32,25 @@ Transfer_CBOW_CNN_MODEL = load_model('Transfer_CBOW_CNN_hyp.h5')
 
 MultiChannelCNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 Transfer_CBOW_CNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-LSTM_NE_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
+DNN_NE_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
-X_trainA, X_testA, Y_trainA, Y_testA = text2seq()
-X_trainB, X_testB, Y_trainB, Y_testB = text2matrix()
 
 
 def ensemble():
-    global MultiChannelCNN_MODEL, Transfer_CBOW_CNN_MODEL, LSTM_NE_MODEL
+    global MultiChannelCNN_MODEL, Transfer_CBOW_CNN_MODEL, DNN_NE_MODEL
 
-    inputA = Input(shape=(MAX_WORD,))
-    # inputB = Input(shape=(MAX_WORD,))
+    #inputA = Input(shape=(MAX_LEN,))
+    inputB = Input(shape=(MAX_WORD,))
     # ALL
-    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA), LSTM_NE_MODEL(inputB)])
+    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA), DNN_NE_MODEL(inputB)])
     # EMB, CBOW
     # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA)])
     # EMB, BOW
-    average = LSTM_NE_MODEL(inputA)
+    average = DNN_NE_MODEL(inputB)
     # CBOW, BOW
-    # average = Average()([Transfer_CBOW_CNN_MODEL(inputA), LSTM_NE_MODEL(inputB)])
+    # average = Average()([Transfer_CBOW_CNN_MODEL(inputA), DNN_NE_MODEL(inputB)])
 
-    model = Model(inputs=inputA, outputs=average)
+    model = Model(inputs=inputB, outputs=average)
     return model
 
 
