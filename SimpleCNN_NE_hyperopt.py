@@ -52,9 +52,9 @@ def LSTM(X_train, Y_train, X_test, Y_test):
     inputs = Input(name='inputs', shape=(MAX_WORDS,))
     reshape = Reshape((MAX_WORDS, 1))(inputs)
 
-    conv_0 = Conv1D(filters={{choice([128,256,512,1024])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
-    conv_1 = Conv1D(filters={{choice([128,256,512,1024])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
-    conv_2 = Conv1D(filters={{choice([128,256,512,1024])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
+    conv_0 = Conv1D(filters={{choice([64,128,256])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
+    conv_1 = Conv1D(filters={{choice([64,128,256])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
+    conv_2 = Conv1D(filters={{choice([64,128,256])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
 
     maxpool_0 = MaxPooling1D(pool_size={{choice([2,3])}}, padding='valid')(conv_0)
     maxpool_1 = MaxPooling1D(pool_size={{choice([2,3])}}, padding='valid')(conv_1)
@@ -76,14 +76,13 @@ def LSTM(X_train, Y_train, X_test, Y_test):
 
     model.fit(X_train,
               Y_train,
-              batch_size={{choice([128, 256, 512])}},
+              batch_size={{choice([64,128])}},
               epochs=1024,
               validation_split=0.2,
               callbacks=[EarlyStopping(monitor='val_loss',
                                        patience=16,
                                        )],
               verbose=2 )
-
     score = model.evaluate(X_test, Y_test)
 
     return {'loss': -score[1], 'status': STATUS_OK, 'model': model}
