@@ -14,43 +14,14 @@ from keras.callbacks import EarlyStopping
 from hyperopt import Trials, STATUS_OK, tpe
 from hyperas import optim
 from hyperas.distributions import choice, uniform
+from Data_proc import text2matrix, MAX_LEN, MAX_WORD, Y_CLASS, TRAINING_PATH
 
 
 ODIR = 'CNN_NE_HypOpt'
-MAX_WORDS = 0
-
-def data():
-    training_data = './Input_json/train.json.csv'
-    df = pd.read_csv(training_data)
-    # Create input and output Vector
-    X = df.ingredients
-    Y = df.cuisine
-    Y_CLASS = 20  # NUM OF CLASS
-
-    # Process the labels
-    le = LabelEncoder()
-    Y = le.fit_transform(Y)
-    Y = Y.reshape(-1, 1)
-    Y = to_categorical(Y, num_classes=Y_CLASS)
-
-    # Split into training and test data
-    tokenizer = Tokenizer()
-    tokenizer.fit_on_texts(X)
-    matrixes = tokenizer.texts_to_matrix(X, mode='binary')
-
-    vocab_size = len(tokenizer.word_index) + 1
-
-    global MAX_WORDS
-    MAX_WORDS = vocab_size
-
-    X = matrixes
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
-    return X_train, X_test, Y_train, Y_test
 
 def LSTM(X_train, Y_train, X_test, Y_test):
-    global MAX_WORDS
-    inputs = Input(name='inputs', shape=(MAX_WORDS,))
-    reshape = Reshape((MAX_WORDS, 1))(inputs)
+    inputs = Input(name='inputs', shape=(MAX_WORD,))
+    reshape = Reshape((MAX_WORD, 1))(inputs)
 
     conv_0 = Conv1D(filters={{choice([64,128,256])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
     conv_1 = Conv1D(filters={{choice([64,128,256])}}, kernel_size={{choice([2,3,4])}}, padding='valid', activation='relu')(reshape)
@@ -67,8 +38,6 @@ def LSTM(X_train, Y_train, X_test, Y_test):
     concatenated = Concatenate(axis=1)([flat_0, flat_1, flat_2])
     dropout = Dropout({{uniform(0, 1)}})(concatenated)
 
-
-    global Y_CLASS
     output = Dense(units=Y_CLASS, activation='softmax')(dropout)
     model = Model(inputs=inputs, outputs=output)
 
@@ -89,13 +58,13 @@ def LSTM(X_train, Y_train, X_test, Y_test):
 
 
 best_run, best_model = optim.minimize(model=LSTM,
-                                      data=data,
+                                      data=text2matrix,
                                       algo=tpe.suggest,
                                       max_evals=10,
                                       trials=Trials(),
                                       verbose=False)
 best_model.summary()
-X_train, X_test, Y_train, Y_test = data()
+X_train, X_test, Y_train, Y_test = text2matrix()
 score = best_model.evaluate(X_test, Y_test)
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])

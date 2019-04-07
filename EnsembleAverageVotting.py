@@ -8,66 +8,51 @@ from keras.preprocessing.text import *
 from keras.utils import to_categorical
 from keras.models import Model
 from keras.layers import Input, Average
+from Data_proc import text2seq, text2matrix, MAX_WORD, Y_CLASS, TRAINING_PATH, MAX_LEN
 
-MAX_WORDS = 0
+LSTM_NE = tfjs.converters.load_keras_model('./LSTM_NE_HypOpt/model.json')
+LSTM_NE.save('LSTM_NE_hyp.h5')
+LSTM_NE_MODEL = load_model('LSTM_NE_hyp.h5')
 
-def data():
-    training_data = './Input_json/train.json.csv'
-    df = pd.read_csv(training_data)
-    # Create input and output Vector
-    X = df.ingredients
-    Y = df.cuisine
-    Y_CLASS = 20  # NUM OF CLASS
+MultiChannelCNN = tfjs.converters.load_keras_model('./MultiChannelCNN/model.json')
+MultiChannelCNN.save('MultiChannelCNN_hyp.h5')
+MultiChannelCNN_MODEL = load_model('MultiChannelCNN_hyp.h5')
 
-    # Process the labels
-    le = LabelEncoder()
-    Y = le.fit_transform(Y)
-    Y = Y.reshape(-1, 1)
-    Y = to_categorical(Y, num_classes=Y_CLASS)
+Transfer_CBOW_CNN = tfjs.converters.load_keras_model('./Transfer_CBOW_CNN/model.json')
+Transfer_CBOW_CNN.save('Transfer_CBOW_CNN_hyp.h5')
+Transfer_CBOW_CNN_MODEL = load_model('Transfer_CBOW_CNN_hyp.h5')
 
-    # Split into training and test data
-    tokenizer = Tokenizer()
-    tokenizer.fit_on_texts(X)
-    matrixes = tokenizer.texts_to_matrix(X, mode='binary')
+MultiChannelCNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
+Transfer_CBOW_CNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
+LSTM_NE_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
-    vocab_size = len(tokenizer.word_index) + 1
+X_trainA, X_testA, Y_trainA, Y_testA = text2seq()
+X_trainB, X_testB, Y_trainB, Y_testB = text2matrix()
 
-    global MAX_WORDS
-    MAX_WORDS = vocab_size
-
-
-    X = matrixes
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
-    return X_train, X_test, Y_train, Y_test
-
-
-loadModels = tfjs.converters.load_keras_model('./DNN_NE_HypOpt/model.json')
-loadModels.save('my_hyp.h5')
-model1 = load_model('my_hyp.h5')
-
-loadModels2 = tfjs.converters.load_keras_model('./DNN_NE/model.json')
-loadModels2.save('my_model.h5')
-model2 = load_model('my_model.h5')
-
-model1.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-model2.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-
-X_train, X_test, Y_train, Y_test = data()
 
 def ensemble():
-    global model1, model2, MAX_WORDS
+    global MultiChannelCNN_MODEL, Transfer_CBOW_CNN_MODEL, LSTM_NE_MODEL
 
-    input = Input(name="EnsembleTest", shape=(MAX_WORDS, ))
-    average = Average()([model1(input), model2(input)])
+    inputA = Input(shape=(MAX_WORD,))
+    # inputB = Input(shape=(MAX_WORD,))
+    # ALL
+    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA), LSTM_NE_MODEL(inputB)])
+    # EMB, CBOW
+    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA)])
+    # EMB, BOW
+    average = LSTM_NE_MODEL(inputA)
+    # CBOW, BOW
+    # average = Average()([Transfer_CBOW_CNN_MODEL(inputA), LSTM_NE_MODEL(inputB)])
 
-    model = Model(inputs=input, outputs = average)
+    model = Model(inputs=inputA, outputs=average)
     return model
+
 
 model_ensemble = ensemble()
 model_ensemble.summary()
 model_ensemble.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
-score = model_ensemble.evaluate(X_test, Y_test)
+score = model_ensemble.evaluate(X_testB, Y_testA)
 
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
