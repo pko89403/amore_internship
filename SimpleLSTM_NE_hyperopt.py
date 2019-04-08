@@ -28,10 +28,6 @@ def LSTM(X_train, Y_train, X_test, Y_test):
     layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
                  recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
     layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
-                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
-                 recurrent_dropout={{uniform(0, 1)}}, return_sequences=True)(layer)
-    layer = LSTM(units={{choice([128, 256, 512, 1024])}}, dropout={{uniform(0, 1)}},
                  recurrent_dropout={{uniform(0, 1)}})(layer)
 
     output = Dense(units=Y_CLASS, activation='softmax')(layer)
