@@ -25,7 +25,7 @@ def text2seq():
     Y = le.fit_transform(Y)
     Y = Y.reshape(-1,1)
     Y = to_categorical(Y, num_classes=Y_CLASS)
-    print(Y[0])
+
     # Split into training and test data
 
     tokenizer = Tokenizer()
@@ -34,7 +34,6 @@ def text2seq():
 
     X = sequence.pad_sequences(sequences, maxlen=MAX_LEN)
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=None, shuffle=False)
-    print(Y_test[0])
     return X_train, X_test, Y_train, Y_test
 
 def text2matrix():
@@ -51,7 +50,6 @@ def text2matrix():
     Y = le.fit_transform(Y)
     Y = Y.reshape(-1, 1)
     Y = to_categorical(Y, num_classes=Y_CLASS)
-    print(Y[0])
     # Split into training and test data
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(X)
@@ -59,5 +57,4 @@ def text2matrix():
 
     X = matrixes
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=None, shuffle=False)
-    print(Y_test[0])
     return X_train, X_test, Y_train, Y_test

@@ -12,3 +12,5 @@ __pycache__/temp_model.cpython-36.pyc
 __pycache__/temp_model.cpython-36.pyc
 *.xml
 *.xml
+Transfer_CBOW_DNN_hyp.h5
+*.h5

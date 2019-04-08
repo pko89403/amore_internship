@@ -13,44 +13,39 @@ from Data_proc import text2seq, text2matrix, MAX_WORD, Y_CLASS, TRAINING_PATH, M
 X_trainA, X_testA, Y_trainA, Y_testA = text2seq()
 X_trainB, X_testB, Y_trainB, Y_testB = text2matrix()
 
+EMB = tfjs.converters.load_keras_model('./1D_YoonKim_Model/model.json')
+EMB.save('1D_YoonKim_Model_hyp.h5')
+EMB_MODEL = load_model('1D_YoonKim_Model_hyp.h5')
 
-print(Y_testA[0], Y_testB[0])
+BOW = tfjs.converters.load_keras_model('./DNN_NE_HypOpt/model.json')
+BOW.save('DNN_NE_hyp.h5')
+BOW_MODEL = load_model('DNN_NE_hyp.h5')
 
+CBOW = tfjs.converters.load_keras_model('./Transfer_CBOW_DNN/model.json')
+CBOW.save('Transfer_CBOW_DNN_hyp.h5')
+CBOW_MODEL = load_model('Transfer_CBOW_DNN_hyp.h5')
 
-
-DNN_NE = tfjs.converters.load_keras_model('./DNN_NE_HypOpt/model.json')
-DNN_NE.save('DNN_NE_hyp.h5')
-DNN_NE_MODEL = load_model('DNN_NE_hyp.h5')
-
-MultiChannelCNN = tfjs.converters.load_keras_model('./MultiChannelCNN/model.json')
-MultiChannelCNN.save('MultiChannelCNN_hyp.h5')
-MultiChannelCNN_MODEL = load_model('MultiChannelCNN_hyp.h5')
-
-Transfer_CBOW_CNN = tfjs.converters.load_keras_model('./Transfer_CBOW_CNN/model.json')
-Transfer_CBOW_CNN.save('Transfer_CBOW_CNN_hyp.h5')
-Transfer_CBOW_CNN_MODEL = load_model('Transfer_CBOW_CNN_hyp.h5')
-
-MultiChannelCNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-Transfer_CBOW_CNN_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-DNN_NE_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
-
-
+EMB_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
+BOW_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
+CBOW_MODEL.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
 def ensemble():
-    global MultiChannelCNN_MODEL, Transfer_CBOW_CNN_MODEL, DNN_NE_MODEL
+    global BOW_MODEL, EMB_MODEL, CBOW_MODEL
 
-    #inputA = Input(shape=(MAX_LEN,))
+    inputA = Input(shape=(MAX_LEN,))
     inputB = Input(shape=(MAX_WORD,))
-    # ALL
-    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA), DNN_NE_MODEL(inputB)])
-    # EMB, CBOW
-    # average = Average()([MultiChannelCNN_MODEL(inputA), Transfer_CBOW_CNN_MODEL(inputA)])
-    # EMB, BOW
-    average = DNN_NE_MODEL(inputB)
-    # CBOW, BOW
-    # average = Average()([Transfer_CBOW_CNN_MODEL(inputA), DNN_NE_MODEL(inputB)])
 
-    model = Model(inputs=inputB, outputs=average)
+    #average = CBOW_MODEL(inputA)
+    # ALL
+    # average = Average()([EMB_MODEL(inputA), CBOW_MODEL(inputA), BOW_MODEL(inputB)])
+    # EMB, CBOW
+    # average = Average()([EMB_MODEL(inputA), CBOW_MODEL(inputA)])
+    # EMB, BOW
+    # average = Average()([EMB_MODEL(inputA), BOW_MODEL(inputB)])
+    # CBOW, BOW
+    average = Average()([CBOW_MODEL(inputA), BOW_MODEL(inputB)])
+
+    model = Model(inputs=[inputA, inputB], outputs=average)
     return model
 
 
@@ -58,7 +53,7 @@ model_ensemble = ensemble()
 model_ensemble.summary()
 model_ensemble.compile(loss='categorical_crossentropy', optimizer="adam", metrics=['accuracy'])
 
-score = model_ensemble.evaluate(X_testB, Y_testA)
+score = model_ensemble.evaluate([X_testA, X_testB], Y_testA)
 
 print('Test loss: ', score[0])
 print('Test Accuracy: ', score[1])
